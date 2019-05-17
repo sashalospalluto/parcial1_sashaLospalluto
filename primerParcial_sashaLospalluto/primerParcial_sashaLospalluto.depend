@@ -1,0 +1,50 @@
+# depslib dependency file v1.0
+1558050359 source:/home/alumno/Documentos/sashaLospalluto/primerParcial_sashaLospalluto/instrumento.c
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	"utn.h"
+	"instrumento.h"
+
+1558051535 source:/home/alumno/Documentos/sashaLospalluto/primerParcial_sashaLospalluto/main.c
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	"orquesta.h"
+	"musico.h"
+	"instrumento.h"
+	"utn.h"
+
+1558051166 /home/alumno/Documentos/sashaLospalluto/primerParcial_sashaLospalluto/orquesta.h
+
+1557372606 /home/alumno/Documentos/sashaLospalluto/primerParcial_sashaLospalluto/utn.h
+
+1558052113 source:/home/alumno/Documentos/sashaLospalluto/primerParcial_sashaLospalluto/musico.c
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	"utn.h"
+	"musico.h"
+	"orquesta.h"
+
+1558046326 source:/home/alumno/Documentos/sashaLospalluto/primerParcial_sashaLospalluto/orquesta.c
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	"utn.h"
+	"orquesta.h"
+
+1557956070 source:/home/alumno/Documentos/sashaLospalluto/primerParcial_sashaLospalluto/utn.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"utn.h"
+	<stdio_ext.h>
+
+1558052094 /home/alumno/Documentos/sashaLospalluto/primerParcial_sashaLospalluto/musico.h
+	"orquesta.h"
+	"instrumento.h"
+
+1558049306 /home/alumno/Documentos/sashaLospalluto/primerParcial_sashaLospalluto/instrumento.h
+
