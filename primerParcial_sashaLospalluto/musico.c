@@ -16,6 +16,7 @@ void musico_hardcodeo(Musico arrayMusico[])
     arrayMusico[0].isEmpty=0;
     arrayMusico[0].idUnico=1;
     arrayMusico[0].idOrquesta=1;
+    arrayMusico[0].idInstrumento=2;
 
     strcpy(arrayMusico[1].nombre,"Juan");//Juan Manuel
     strcpy(arrayMusico[1].apellido,"Chico");
@@ -23,6 +24,7 @@ void musico_hardcodeo(Musico arrayMusico[])
     arrayMusico[1].isEmpty=0;
     arrayMusico[1].idUnico=2;
     arrayMusico[1].idOrquesta=2;
+    arrayMusico[1].idInstrumento=2;
 
     strcpy(arrayMusico[2].nombre,"Sandra Angelica");//Sandra Angelica
     strcpy(arrayMusico[2].apellido,"Alvez");
@@ -30,6 +32,7 @@ void musico_hardcodeo(Musico arrayMusico[])
     arrayMusico[2].isEmpty=0;
     arrayMusico[2].idUnico=3;
     arrayMusico[2].idOrquesta=1;
+    arrayMusico[2].idInstrumento=1;
 
     strcpy(arrayMusico[3].nombre,"Ricardo");//Sandra Angelica
     strcpy(arrayMusico[3].apellido,"Rojas");
@@ -37,6 +40,7 @@ void musico_hardcodeo(Musico arrayMusico[])
     arrayMusico[3].isEmpty=0;
     arrayMusico[3].idUnico=4;
     arrayMusico[3].idOrquesta=1;
+    arrayMusico[3].idInstrumento=3;
 }
 
 /** \brief  To indicate that all position in the array are empty,
@@ -221,8 +225,8 @@ int musico_alta(Musico array[], int size, int* contadorID, Orquesta arrayOrquest
                                         (*contadorID)++;
                                         array[posicion].idUnico=*contadorID;                                                       //campo ID
                                         array[posicion].isEmpty=0;
-                                        printf("\n Posicion: %d\n ID: %d\n nombre: %s\n apellido: %s\n Edad: %d\n id orquesta: %d",
-                                        posicion, array[posicion].idUnico,array[posicion].nombre,array[posicion].apellido, array[posicion].edad, array[posicion].idOrquesta);
+                                        printf("\n Posicion: %d\n ID: %d\n nombre: %s\n apellido: %s\n Edad: %d\n id orquesta: %d \n id instrumento: %d",
+                                        posicion, array[posicion].idUnico,array[posicion].nombre,array[posicion].apellido, array[posicion].edad, array[posicion].idOrquesta, array[posicion].idInstrumento);
                                     }
                                     else
                                     {

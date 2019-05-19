@@ -30,38 +30,46 @@ int main()
 
     do
     {
-        utn_getUnsignedInt("\n\t\tMENU\n1) Alta orquesta \n2) Modificar orquesta \n3) Baja orquesta \n4) Listar orquesta\n"
-                               "\n1) Alta musico \n2) Modificar musico \n3) Baja musico \n4) Listar musico\n"
-                               "5) Salir\n \tIngrese una opcion: ",                //cambiar
-                      "\nError",1,sizeof(int),1,6,1,&opcion);
+        utn_getUnsignedInt("\n\t\tMENU\n\n1) Agregar orquesta \n2) Eliminar orquesta \n3) Imprimir orquestas \n4) Agregar musico\n"
+                               "5) Modificar musico \n6) Elimminar musico \n7) Imprimir musicos \n8) Agregar instrumento\n"
+                               "9) Imprimir instrumentos \n10) Salir\n \n\tIngrese una opcion: ",                //cambiar
+                      "\nError",1,sizeof(int),1,10,1,&opcion);
         switch(opcion)
         {
             case 1: //Alta
-                //orquesta_alta(arrayOrquesta,QTY_ORQUESTA,&contadorIdOrquesta);
-                musico_alta(arrayMusico,QTY_MUSICO,&contadorIdMusico,arrayOrquesta,QTY_ORQUESTA, arrayInstrumento, QTY_INSTRUMENTO);
-                musico_alta(arrayMusico,QTY_MUSICO,&contadorIdMusico,arrayOrquesta,QTY_ORQUESTA, arrayInstrumento, QTY_INSTRUMENTO);
-                //instrumento_alta(arrayInstrumento,QTY_INSTRUMENTO,&contadorIdInstrumento);
-                break;
-            case 2: //Modificar
-                //orquesta_modificar(arrayOrquesta,QTY_ORQUESTA);
-                musico_modificar(arrayMusico,QTY_MUSICO);
-                break;
-            case 3: //Baja
-                //orquesta_baja(arrayOrquesta,QTY_ORQUESTA);
-                musico_baja(arrayMusico,QTY_MUSICO);
-                break;
-            case 4://Listar
-                //orquesta_listar(arrayOrquesta,QTY_ORQUESTA);
-                musico_listar(arrayMusico,QTY_MUSICO);
-                //instrumento_listar(arrayInstrumento,QTY_INSTRUMENTO);
+                orquesta_alta(arrayOrquesta,QTY_ORQUESTA,&contadorIdOrquesta);
 
                 break;
-            case 5://Salir
+            case 2: //Baja
+                orquesta_baja(arrayOrquesta,QTY_ORQUESTA);
+                break;
+            case 3: //Mostrar
+                orquesta_listar(arrayOrquesta,QTY_ORQUESTA);
+                break;
+            case 4://Listar
+                 musico_alta(arrayMusico,QTY_MUSICO,&contadorIdMusico,arrayOrquesta,QTY_ORQUESTA, arrayInstrumento, QTY_INSTRUMENTO);
+                break;
+            case 5:
+                musico_modificar(arrayMusico,QTY_MUSICO);
+                break;
+            case 6:
+                musico_baja(arrayMusico,QTY_MUSICO);
+                break;
+            case 7:
+                musico_listar(arrayMusico,QTY_MUSICO);
+                break;
+            case 8:
+                instrumento_alta(arrayInstrumento,QTY_INSTRUMENTO,&contadorIdInstrumento);
+                break;
+            case 9:
+                instrumento_listar(arrayInstrumento,QTY_INSTRUMENTO);
+                break;
+            case 10://Salir
                 break;
             default:
                 printf("\nOpcion no valida");
         }
     }
-    while(opcion!=5);
+    while(opcion!=10);
     return 0;
 }

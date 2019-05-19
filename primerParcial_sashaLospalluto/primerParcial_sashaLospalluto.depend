@@ -48,3 +48,51 @@
 
 1558049306 /home/alumno/Documentos/sashaLospalluto/primerParcial_sashaLospalluto/instrumento.h
 
+1558052209 source:c:\users\sashaoriana\documents\utn2019\parcial1_sashalospalluto-master\parcial1_sashalospalluto-master\primerparcial_sashalospalluto\instrumento.c
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	"utn.h"
+	"instrumento.h"
+
+1558052209 c:\users\sashaoriana\documents\utn2019\parcial1_sashalospalluto-master\parcial1_sashalospalluto-master\primerparcial_sashalospalluto\utn.h
+
+1558052209 c:\users\sashaoriana\documents\utn2019\parcial1_sashalospalluto-master\parcial1_sashalospalluto-master\primerparcial_sashalospalluto\instrumento.h
+
+1558292805 source:c:\users\sashaoriana\documents\utn2019\parcial1_sashalospalluto-master\parcial1_sashalospalluto-master\primerparcial_sashalospalluto\main.c
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	"orquesta.h"
+	"musico.h"
+	"instrumento.h"
+	"utn.h"
+
+1558052209 c:\users\sashaoriana\documents\utn2019\parcial1_sashalospalluto-master\parcial1_sashalospalluto-master\primerparcial_sashalospalluto\orquesta.h
+
+1558052209 c:\users\sashaoriana\documents\utn2019\parcial1_sashalospalluto-master\parcial1_sashalospalluto-master\primerparcial_sashalospalluto\musico.h
+	"orquesta.h"
+	"instrumento.h"
+
+1558293087 source:c:\users\sashaoriana\documents\utn2019\parcial1_sashalospalluto-master\parcial1_sashalospalluto-master\primerparcial_sashalospalluto\musico.c
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	"utn.h"
+	"musico.h"
+	"orquesta.h"
+
+1558052209 source:c:\users\sashaoriana\documents\utn2019\parcial1_sashalospalluto-master\parcial1_sashalospalluto-master\primerparcial_sashalospalluto\orquesta.c
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	"utn.h"
+	"orquesta.h"
+
+1558292173 source:c:\users\sashaoriana\documents\utn2019\parcial1_sashalospalluto-master\parcial1_sashalospalluto-master\primerparcial_sashalospalluto\utn.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"utn.h"
+

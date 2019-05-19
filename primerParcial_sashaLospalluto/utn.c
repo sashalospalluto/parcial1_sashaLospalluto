@@ -3,7 +3,7 @@
 #include <string.h>
 #include <ctype.h>
 #include "utn.h"
-#include <stdio_ext.h> //linux
+//#include <stdio_ext.h> //linux
 
 /*
 getString
