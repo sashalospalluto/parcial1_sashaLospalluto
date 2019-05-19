@@ -219,7 +219,7 @@ int musico_alta(Musico array[], int size, int* contadorID, Orquesta arrayOrquest
                         if(utn_getUnsignedInt("\nId de la orquesta: ","\nError",1,sizeof(int),1,10000,3,&idOrquesta)==0 &&
                            orquesta_buscarID(arrayOrquesta,sizeOrquesta,idOrquesta,&pos)==0)
                            {
-                                if(utn_getUnsignedInt("\nId del instrumento ","\nError",1,sizeof(int),1,10000,3,&idInstrumento)==0 &&
+                                if(utn_getUnsignedInt("\nId del instrumento: ","\nError",1,sizeof(int),1,10000,3,&idInstrumento)==0 &&
                                     instrumento_buscarID(arrayInstrumento,sizeInstrumento,idInstrumento,&pos)==0)
                                     {
                                         array[posicion].idOrquesta=idOrquesta;
@@ -450,7 +450,7 @@ void musico_ordenarPorString(Musico array[],int size)                           
 * \return int Return (-1) si Error [largo no valido o NULL pointer] - (0) si se lista exitosamente
 *
 */
-int musico_listar(Musico array[], int size, int opcion)                      //cambiar musico
+int musico_listar(Musico array[], int size, int opcion, Instrumento arrayInstrumento[], int sizeInstrumento)                      //cambiar musico
 {
     int retorno=-1;
     int i;
@@ -472,12 +472,14 @@ int musico_listar(Musico array[], int size, int opcion)                      //c
                 }
                 else if (opcion==5)
                 {
-                    printf("\n ID: %d\n nombre: %s\n apellido: %s \n id instrumento: %d \n id orquesta: %d\n",
-                    array[i].idUnico,array[i].nombre,array[i].apellido,array[i].idInstrumento,array[i].idOrquesta);
+                    printf("\n ID: %d\n Nombre: %s\n Apellido: %s ",
+                    array[i].idUnico,array[i].nombre,array[i].apellido);
+                    instrumento_listarUnoParticular(arrayInstrumento,sizeInstrumento,array[i].idInstrumento);
+
                 }
                 else
                 {
-                    printf("\n ID: %d\n nombre: %s\n apellido: %s \n",
+                    printf("\n ID: %d\n Nombre: %s\n Apellido: %s \n",
                     array[i].idUnico,array[i].nombre,array[i].apellido);
                 }
 
@@ -573,3 +575,5 @@ void musico_bajaConOrquesta(Musico array[], int size, Orquesta arrayOrquesta[], 
         }
     }
 }
+
+

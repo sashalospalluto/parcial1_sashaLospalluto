@@ -50,15 +50,15 @@ int main()
                 musico_alta(arrayMusico,QTY_MUSICO,&contadorIdMusico,arrayOrquesta,QTY_ORQUESTA, arrayInstrumento, QTY_INSTRUMENTO);
                 break;
             case 5:
-                musico_listar(arrayMusico,QTY_MUSICO,3);
+                musico_listar(arrayMusico,QTY_MUSICO,3,arrayInstrumento,QTY_INSTRUMENTO);
                 musico_modificar(arrayMusico,QTY_MUSICO,arrayOrquesta,QTY_ORQUESTA);
                 break;
             case 6:
-                musico_listar(arrayMusico,QTY_MUSICO,3);
+                musico_listar(arrayMusico,QTY_MUSICO,3,arrayInstrumento,QTY_INSTRUMENTO);
                 musico_baja(arrayMusico,QTY_MUSICO);
                 break;
             case 7:
-                musico_listar(arrayMusico,QTY_MUSICO,5);
+                musico_listar(arrayMusico,QTY_MUSICO,5,arrayInstrumento,QTY_INSTRUMENTO);
                 break;
             case 8:
                 instrumento_alta(arrayInstrumento,QTY_INSTRUMENTO,&contadorIdInstrumento);

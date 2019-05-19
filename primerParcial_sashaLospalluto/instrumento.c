@@ -199,8 +199,10 @@ int instrumento_alta(Instrumento array[], int size, int* contadorID)            
                         (*contadorID)++;
                         array[posicion].idUnico=*contadorID;                                                       //campo ID
                         array[posicion].isEmpty=0;
-                        printf("\n Posicion: %d\n ID: %d\n nombre: %s\n tipo: %d\n",
-                        posicion,array[posicion].idUnico,array[posicion].nombre,array[posicion].tipo);
+                        printf("\n ID GENERADO: %d",array[posicion].idUnico);
+
+                       /* printf("\n Posicion: %d\n ID: %d\n nombre: %s\n tipo: %d\n",
+                        posicion,array[posicion].idUnico,array[posicion].nombre,array[posicion].tipo);*/
 
                    }
                 retorno=0;
@@ -408,8 +410,9 @@ int instrumento_listar(Instrumento array[], int size)                      //cam
                 }
                 else
                 {
-                     printf("\n\n ID: %d\n nombre: %s\n tipo:%d",
-                     array[i].idUnico,array[i].nombre,array[i].tipo);      //cambiar todos
+                     printf("\n\n  ID: %d\n  nombre: %s\n ",
+                     array[i].idUnico,array[i].nombre);      //cambiar todos
+                     instrumento_mostrarTipo(array[i].tipo);
                 }
             }
             retorno=0;
@@ -515,10 +518,49 @@ int instrumento_tipoInstrumento (int* instrumento)
                 *instrumento=opInstrumento;
                 ret=0;
                 break;
+            case 4:
+                *instrumento=opInstrumento;
+                ret=0;
+                break;
             default:
                 printf("\nNo existe el instrumento\n");
                 break;
         }
     }
     return ret;
+}
+
+void instrumento_mostrarTipo(int tipo)
+{
+    switch(tipo)
+    {
+        case 1:
+            printf(" Tipo de instrumento: Cuerdas\n");
+            break;
+        case 2:
+            printf(" Tipo de instrumento: Viento-madera\n");
+            break;
+        case 3:
+            printf(" Tipo de instrumento: Viento-metal\n");
+            break;
+        case 4:
+            printf(" Tipo de instrumento: Percusion\n");
+            break;
+    }
+}
+
+void instrumento_listarUnoParticular(Instrumento array[], int size,int idBuscado)
+{
+    int i;
+    for(i=0;i<size;i++)
+    {
+        if(array[i].isEmpty==0)
+        {
+            if(array[i].idUnico==idBuscado)
+            {
+                printf("\n Nombre Instrumento: %s\n",array[i].nombre);
+                instrumento_mostrarTipo(array[i].tipo);
+            }
+        }
+    }
 }

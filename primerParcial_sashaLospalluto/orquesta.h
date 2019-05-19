@@ -31,3 +31,4 @@ void orquesta_ordenarPorString(Orquesta array[],int size);                      
 int orquesta_listar(Orquesta array[], int size);                      //cambiar orquesta
 int orquesta_ordenarPorStringInsercion(Orquesta array[],int size);                              //cambiar orquesta
 int orquesta_tipoOrquesta (int* orquesta);
+void orquesta_mostrarTipo(int tipo);

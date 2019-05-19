@@ -200,8 +200,10 @@ int orquesta_alta(Orquesta array[], int size, int* contadorID)                  
                         (*contadorID)++;
                         array[posicion].idUnico=*contadorID;                                                       //campo ID
                         array[posicion].isEmpty=0;
-                        printf("\n Posicion: %d\n ID: %d\n nombre: %s\n lugar: %s \n tipo: %d\n",
-                        posicion, array[posicion].idUnico,array[posicion].nombre,array[posicion].lugar,array[posicion].tipo);
+                        printf("\n ID GENERADO: %d",array[posicion].idUnico);
+
+                       /* printf("\n Posicion: %d\n ID: %d\n nombre: %s\n lugar: %s \n tipo: %d\n",
+                        posicion, array[posicion].idUnico,array[posicion].nombre,array[posicion].lugar,array[posicion].tipo);*/
                         retorno=0;
                     }
                }
@@ -433,8 +435,9 @@ int orquesta_listar(Orquesta array[], int size)                      //cambiar o
                 if(array[i].isEmpty==1)
                     continue;
                 else
-                    printf("\n\n ID: %d\n nombre: %s\n lugar: %s \n tipo: %d",
-                           array[i].idUnico,array[i].nombre,array[i].lugar,array[i].tipo);      //cambiar todos
+                    printf("\n\n ID: %d\n nombre: %s\n lugar: %s \n tipo: ",
+                           array[i].idUnico,array[i].nombre,array[i].lugar);
+                    orquesta_mostrarTipo(array[i].tipo);
             }
             retorno=0;
         }
@@ -535,4 +538,20 @@ int orquesta_tipoOrquesta (int* orquesta)
         }
     }
     return ret;
+}
+
+void orquesta_mostrarTipo(int tipo)
+{
+    switch(tipo)
+    {
+        case 1:
+            printf("Sinfonica\n");
+            break;
+        case 2:
+            printf("Filarmonica\n");
+            break;
+        case 3:
+            printf("Camara\n");
+            break;
+    }
 }

@@ -29,3 +29,5 @@ void instrumento_ordenarPorString(Instrumento array[],int size);                
 int instrumento_listar(Instrumento array[], int size);                      //cambiar instrumento
 int instrumento_ordenarPorStringInsercion(Instrumento array[],int size);                              //cambiar instrumento
 int instrumento_tipoInstrumento (int* instrumento);
+void instrumento_mostrarTipo(int tipo);
+void instrumento_listarUnoParticular(Instrumento array[], int size,int idBuscado);
