@@ -398,15 +398,19 @@ int instrumento_listar(Instrumento array[], int size)                      //cam
     {
         if(array!=NULL && size>=0)
         {
-            instrumento_ordenarPorString(array,size);
+            //instrumento_ordenarPorString(array,size);
             //instrumento_ordenarPorStringInsercion(array,size);
             for(i=0;i<size;i++)
             {
                 if(array[i].isEmpty==1)
+                {
                     continue;
+                }
                 else
-                    printf("\n\n ID: %d\n nombre: %s\n tipo:%d",
-                           array[i].idUnico,array[i].nombre,array[i].tipo);      //cambiar todos
+                {
+                     printf("\n\n ID: %d\n nombre: %s\n tipo:%d",
+                     array[i].idUnico,array[i].nombre,array[i].tipo);      //cambiar todos
+                }
             }
             retorno=0;
         }

@@ -110,7 +110,9 @@ int musico_buscarID(Musico array[], int size, int valorBuscado, int* posicion)  
         for(i=0;i<size;i++)
         {
             if(array[i].isEmpty==1)
+            {
                 continue;
+            }
             else if(array[i].idUnico==valorBuscado)                                                   //cambiar campo ID
             {
                 retorno=0;
@@ -334,12 +336,14 @@ int musico_bajaValorRepetidoInt(Musico array[], int sizeArray, int valorBuscado)
 * \return int Return (-1) si Error [largo no valido o NULL pointer o no encuentra elementos con el valor buscado] - (0) si se modifica el elemento exitosamente
 *
 */
-int musico_modificar(Musico array[], int sizeArray)                                //cambiar musico
+int musico_modificar(Musico array[], int sizeArray, Orquesta arrayOrquesta[], int sizeOrquesta)                                //cambiar musico
 {
     int retorno=-1;
     int posicion;
     int id;                                                                                         //cambiar si no se busca por ID
     int opcion;
+    int pos;
+    int idOrquesta;
 
     //auxiliares
     Musico auxArray;
@@ -360,9 +364,9 @@ int musico_modificar(Musico array[], int sizeArray)                             
             {
                 do
                 {       //copiar printf de alta
-                    printf("\n 1-Edad: %d\n 2-ID orquesta: %d \n6-SALIR\n",
+                    printf("\n 1-Edad: %d\n 2-ID orquesta: %d \n 3-SALIR\n",
                            array[posicion].edad,array[posicion].idOrquesta);
-                    utn_getUnsignedInt("\nIngrese opcion: ","error",1,7,1,6,3,&opcion);
+                    utn_getUnsignedInt("\nIngrese opcion: ","error",1,3,1,3,3,&opcion);
                     switch(opcion)
                     {
                         case 1:
@@ -376,21 +380,22 @@ int musico_modificar(Musico array[], int sizeArray)                             
                             }
                             break;
                         case 2:
-                            if(utn_getTexto("\nApellido: ","\nError",1,TEXT_SIZE,1,auxArray.apellido)==0)
+                             if(utn_getUnsignedInt("\nId de la orquesta: ","\nError",1,sizeof(int),1,10000,3,&idOrquesta)==0 &&
+                             orquesta_buscarID(arrayOrquesta,sizeOrquesta,idOrquesta,&pos)==0)
                             {
-                                strcpy(array[posicion].apellido,auxArray.apellido);
+                                array[posicion].idOrquesta=idOrquesta;
                             }
                             else
                             {
                                 printf("\nError al cargar el dato");
                             }
                             break;
-                        case 6:
+                        case 3: //salir
                             break;
                         default:
                             printf("\nOpcion no valida");
                     }
-                }while(opcion!=6);
+                }while(opcion!=3);
                 retorno=0;
             }
         }
@@ -409,7 +414,7 @@ int musico_modificar(Musico array[], int sizeArray)                             
 
 void musico_ordenarPorString(Musico array[],int size)                              //cambiar autor
 {
-    printf("\nORDENADO POR APELLIDO Y NOMBRE\n");
+    //printf("\nORDENADO POR APELLIDO Y NOMBRE\n");
     int i;
     Musico auxiliar;
     int j;
@@ -445,7 +450,7 @@ void musico_ordenarPorString(Musico array[],int size)                           
 * \return int Return (-1) si Error [largo no valido o NULL pointer] - (0) si se lista exitosamente
 *
 */
-int musico_listar(Musico array[], int size)                      //cambiar musico
+int musico_listar(Musico array[], int size, int opcion)                      //cambiar musico
 {
     int retorno=-1;
     int i;
@@ -457,15 +462,26 @@ int musico_listar(Musico array[], int size)                      //cambiar music
     {
         if(array!=NULL && size>=0)
         {
-            musico_ordenarPorString(array,size);
+            //musico_ordenarPorString(array,size);
             //musico_ordenarPorStringInsercion(array,size);
             for(i=0;i<size;i++)
             {
                 if(array[i].isEmpty==1)
+                {
                     continue;
-                else
+                }
+                else if (opcion==5)
+                {
                     printf("\n ID: %d\n nombre: %s\n apellido: %s \n id instrumento: %d \n id orquesta: %d\n",
-                           array[i].idUnico,array[i].nombre,array[i].apellido,array[i].idInstrumento,array[i].idOrquesta);      //cambiar todos
+                    array[i].idUnico,array[i].nombre,array[i].apellido,array[i].idInstrumento,array[i].idOrquesta);
+                }
+                else
+                {
+                    printf("\n ID: %d\n nombre: %s\n apellido: %s \n",
+                    array[i].idUnico,array[i].nombre,array[i].apellido);
+                }
+
+                          //cambiar todos
             }
             retorno=0;
         }
@@ -533,4 +549,27 @@ int musico_ordenarPorStringInsercion(Musico array[],int size)                   
         retorno=0;
     }
     return retorno;
+}
+
+void musico_bajaConOrquesta(Musico array[], int size, Orquesta arrayOrquesta[], int sizeOrquesta)
+{
+    int i;
+    int id;
+    if (orquesta_baja(arrayOrquesta,sizeOrquesta,&id)==0)
+    {
+       if(array!= NULL && size>=0)
+        {
+            for(i=0;i<size;i++)
+            {
+                if(array[i].isEmpty==1)
+                {
+                    continue;
+                }
+                else if(array[i].idOrquesta==id)                                                   //cambiar campo ID
+                {
+                    array[i].isEmpty=1;
+                }
+            }
+        }
+    }
 }

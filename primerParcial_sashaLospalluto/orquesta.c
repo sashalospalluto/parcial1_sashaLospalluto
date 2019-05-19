@@ -4,6 +4,7 @@
 //#include <stdio_ext.h> //linux
 #include "utn.h"
 #include "orquesta.h" //cambiar por nombre entidad
+#include "musico.h"
 
 //strcmpi=strcasecmp windows=linux
 
@@ -224,7 +225,7 @@ int orquesta_alta(Orquesta array[], int size, int* contadorID)                  
 * \return int Return (-1) si Error [largo no valido o NULL pointer o no encuentra elementos con el valor buscado] - (0) si se elimina el elemento exitosamente
 *
 */
-int orquesta_baja(Orquesta array[], int sizeArray)                                      //cambiar orquesta
+int orquesta_baja(Orquesta array[], int sizeArray, int* idBuscado)                                      //cambiar orquesta
 {
     int retorno=-1;
     int posicion;
@@ -238,7 +239,7 @@ int orquesta_baja(Orquesta array[], int sizeArray)                              
     {
         if(array!=NULL && sizeArray>0)
         {
-            utn_getUnsignedInt("\nID a cancelar: ","\nError",1,sizeof(int),1,sizeArray,1,&id);          //cambiar si no se busca por ID
+            utn_getUnsignedInt("\n\nID a cancelar: ","\nError",1,sizeof(int),1,sizeArray,1,&id);          //cambiar si no se busca por ID
             if(orquesta_buscarID(array,sizeArray,id,&posicion)==-1)                                   //cambiar si no se busca por ID
             {
                 printf("\nNo existe este ID");                                                          //cambiar si no se busca por ID
@@ -250,6 +251,8 @@ int orquesta_baja(Orquesta array[], int sizeArray)                              
                 {
                     printf("\nBORRADO CON EXITO\n");
                     array[posicion].isEmpty=1;
+                    *(idBuscado)=id;
+                    //musico_bajaConOrquesta(arrayMusico,sizeMusico,id);
                     retorno=0;
                 }
             }
@@ -375,7 +378,7 @@ int orquesta_modificar(Orquesta array[], int sizeArray)                         
 
 void orquesta_ordenarPorString(Orquesta array[],int size)                              //cambiar autor
 {
-    printf("\nORDENADO POR APELLIDO Y NOMBRE\n");
+    //printf("\nORDENADO POR APELLIDO Y NOMBRE\n");
     int i;
     Orquesta auxiliar;
     int j;
@@ -423,7 +426,7 @@ int orquesta_listar(Orquesta array[], int size)                      //cambiar o
     {
         if(array!=NULL && size>=0)
         {
-            orquesta_ordenarPorString(array,size);
+            //orquesta_ordenarPorString(array,size);
             //orquesta_ordenarPorStringInsercion(array,size);
             for(i=0;i<size;i++)
             {
