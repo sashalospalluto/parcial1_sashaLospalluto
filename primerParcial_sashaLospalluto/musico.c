@@ -475,7 +475,6 @@ int musico_listar(Musico array[], int size, int opcion, Instrumento arrayInstrum
                     printf("\n ID: %d\n Nombre: %s\n Apellido: %s ",
                     array[i].idUnico,array[i].nombre,array[i].apellido);
                     instrumento_listarUnoParticular(arrayInstrumento,sizeInstrumento,array[i].idInstrumento);
-
                 }
                 else
                 {

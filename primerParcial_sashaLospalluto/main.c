@@ -4,6 +4,7 @@
 #include "orquesta.h"
 #include "musico.h"
 #include "instrumento.h" //cambiar por nombre entidad
+#include "informes.h"
 #include"utn.h"
 #define QTY_ORQUESTA 50
 #define QTY_MUSICO 1000
@@ -32,8 +33,8 @@ int main()
     {
         utn_getUnsignedInt("\n\t\tMENU\n\n1) Agregar orquesta \n2) Eliminar orquesta \n3) Imprimir orquestas \n4) Agregar musico\n"
                                "5) Modificar musico \n6) Elimminar musico \n7) Imprimir musicos \n8) Agregar instrumento\n"
-                               "9) Imprimir instrumentos \n10) Salir\n \n\tIngrese una opcion: ",                //cambiar
-                      "\nError",1,sizeof(int),1,10,1,&opcion);
+                               "9) Imprimir instrumentos \n10) Informes \n11) Salir\n \n\tIngrese una opcion: ",                //cambiar
+                      "\nError",1,sizeof(int),1,11,1,&opcion);
         switch(opcion)
         {
             case 1: //Alta
@@ -66,12 +67,15 @@ int main()
             case 9:
                 instrumento_listar(arrayInstrumento,QTY_INSTRUMENTO);
                 break;
-            case 10://Salir
+            case 10:
+                informe_menu(arrayMusico,arrayOrquesta,arrayInstrumento,QTY_MUSICO,QTY_ORQUESTA,QTY_INSTRUMENTO);
+                break;
+            case 11://Salir
                 break;
             default:
                 printf("\nOpcion no valida");
         }
     }
-    while(opcion!=10);
+    while(opcion!=11);
     return 0;
 }

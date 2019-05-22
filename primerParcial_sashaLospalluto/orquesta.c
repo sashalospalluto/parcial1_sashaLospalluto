@@ -10,26 +10,26 @@
 
 void orquesta_hardcodeo(Orquesta arrayOrquesta[])
 {
-    strcpy(arrayOrquesta[0].nombre,"Sasha");//Sasha
-    strcpy(arrayOrquesta[0].lugar,"Avellaneda");
+    strcpy(arrayOrquesta[0].nombre,"Berliner");//Berliner
+    strcpy(arrayOrquesta[0].lugar,"Alemania");
     arrayOrquesta[0].isEmpty=0;
     arrayOrquesta[0].idUnico=1;
     arrayOrquesta[0].tipo=1;
 
-    strcpy(arrayOrquesta[1].nombre,"Juan");//Juan Manuel
-    strcpy(arrayOrquesta[1].lugar,"Bernal");
+    strcpy(arrayOrquesta[1].nombre,"Boston");//Juan Manuel
+    strcpy(arrayOrquesta[1].lugar,"Estados Unidos");
     arrayOrquesta[1].isEmpty=0;
     arrayOrquesta[1].idUnico=2;
     arrayOrquesta[1].tipo=1;
 
-    strcpy(arrayOrquesta[2].nombre,"Sandra Angelica");//Sandra Angelica
-    strcpy(arrayOrquesta[2].lugar,"Eldorado");
+    strcpy(arrayOrquesta[2].nombre,"Concertgebouw");//Sandra Angelica
+    strcpy(arrayOrquesta[2].lugar,"Amsterdam");
     arrayOrquesta[2].isEmpty=0;
     arrayOrquesta[2].idUnico=3;
     arrayOrquesta[2].tipo=2;
 
-    strcpy(arrayOrquesta[3].nombre,"Ricardo");//Sandra Angelica
-    strcpy(arrayOrquesta[3].lugar,"Rojas");
+    strcpy(arrayOrquesta[3].nombre,"Philharmonia");//Philharmonia
+    strcpy(arrayOrquesta[3].lugar,"Rusia");
     arrayOrquesta[3].isEmpty=0;
     arrayOrquesta[3].idUnico=4;
     arrayOrquesta[3].tipo=3;
@@ -391,7 +391,7 @@ void orquesta_ordenarPorString(Orquesta array[],int size)                       
             {
                 if((array[i].isEmpty==0) && (array[j].isEmpty==0))
                 {
-                    if ((strcasecmp(array[j].lugar,array[i].lugar)<0))
+                    if ((strcasecmp(array[j].nombre,array[i].nombre)<0))
                     {
                         auxiliar=array[i];
                         array[i]=array[j];
@@ -433,11 +433,16 @@ int orquesta_listar(Orquesta array[], int size)                      //cambiar o
             for(i=0;i<size;i++)
             {
                 if(array[i].isEmpty==1)
+                {
                     continue;
+                }
                 else
+                {
                     printf("\n\n ID: %d\n nombre: %s\n lugar: %s \n tipo: ",
                            array[i].idUnico,array[i].nombre,array[i].lugar);
                     orquesta_mostrarTipo(array[i].tipo);
+                }
+
             }
             retorno=0;
         }

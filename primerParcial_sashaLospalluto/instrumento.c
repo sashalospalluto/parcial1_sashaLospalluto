@@ -454,43 +454,29 @@ int instrumento_ordenarPorStringInsercion(Instrumento array[],int size)         
     char bufferNombre[TEXT_SIZE];                               //cambiar campo varString
     int bufferId;
     int bufferIsEmpty;
+    int bufferTipo;
 
     if(array!=NULL && size>=0)
     {
         for (i = 1; i < size; i++)
         {
             strcpy(bufferNombre,array[i].nombre);
-//            strcpy(bufferApellido,array[i].apellido);                      //cambiar campo varString
             bufferId=array[i].idUnico;                                   //cambiar campo id
             bufferIsEmpty=array[i].isEmpty;
-//            bufferSexo=array[i].sexo;                                //cambiar campo varInt
-//            bufferTelefono=array[i].telefono;                            //cambiar campo varFloat
-//            strcpy(bufferEmail,array[i].email);
-//            dia=array[i].dia;
-//            agno=array[i].agno;
-//            mes=array[i].mes;
+            bufferTipo=array[i].tipo;
             j = i - 1;
             while ((j >= 0) && strcasecmp(bufferNombre,array[j].nombre)<0)         //cambiar campo varString                 //Si tiene mas de un criterio se lo agrego, Ej. bufferInt<array[j].varInt
             {                                                                                                               //buffer < campo ascendente   buffer > campo descendente
                 strcpy(array[j + 1].nombre,array[j].nombre);          //cambiar campo varString
                 array[j + 1].idUnico=array[j].idUnico;                                //cambiar campo id
                 array[j + 1].isEmpty=array[j].isEmpty;
-//                array[j + 1].sexo=array[j].sexo;                        //cambiar campo varInt
-//                array[j + 1].telefono=array[j].telefono;                        //cambiar campo varInt
-//                array[j + 1].dia=array[j].dia;                        //cambiar campo varInt
-//                array[j + 1].mes=array[j].mes;                        //cambiar campo varInt
-//                array[j + 1].agno=array[j].agno;                        //cambiar campo varInt
-//                strcpy(array[j + 1].apellido,array[j].apellido);  //cambiar campo varLongString
-//                strcpy(array[j + 1].email,array[j].email);  //cambiar campo varLongString
+                array[j + 1].tipo=array[j].tipo;
                 j--;
             }
             strcpy(array[j + 1].nombre,bufferNombre);                     //cambiar campo varString
-//            strcpy(array[j + 1].apellido,bufferApellido);                     //cambiar campo varString
             array[j + 1].idUnico=bufferId;                                        //cambiar campo id
             array[j + 1].isEmpty=bufferIsEmpty;
-//            array[j + 1].dia=dia;                                                        //cambiar campo varInt
-//            array[j + 1].sexo=bufferSexo;                                                        //cambiar campo varInt
-//            array[j + 1].mes=mes;                                                        //cambiar campo varInt
+            array[j + 1].tipo=bufferTipo;
         }
         retorno=0;
     }
