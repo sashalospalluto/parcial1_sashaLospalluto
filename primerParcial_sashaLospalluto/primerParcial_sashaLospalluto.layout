@@ -2,65 +2,127 @@
 <CodeBlocks_layout_file>
 	<FileVersion major="1" minor="0" />
 	<ActiveTarget name="Debug" />
-	<File name="instrumento.h" open="0" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="musico.c" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="1986" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="orquesta.c" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="18863" topLine="16" />
+			<Cursor1 position="1944" topLine="54" />
 		</Cursor>
 		<Folding>
-			<Collapse line="46" />
-			<Collapse line="70" />
-			<Collapse line="123" />
+			<Collapse line="76" />
+			<Collapse line="100" />
+			<Collapse line="126" />
+			<Collapse line="155" />
+			<Collapse line="185" />
+			<Collapse line="287" />
+			<Collapse line="329" />
+			<Collapse line="361" />
+			<Collapse line="437" />
 		</Folding>
 	</File>
-	<File name="utn.c" open="0" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="instrumento.c" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="101" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="informes.c" open="1" top="1" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="635" topLine="3" />
+			<Cursor1 position="19276" topLine="291" />
 		</Cursor>
 		<Folding>
-			<Collapse line="96" />
-			<Collapse line="166" />
-			<Collapse line="229" />
-			<Collapse line="273" />
+			<Collapse line="52" />
+			<Collapse line="76" />
+			<Collapse line="129" />
+			<Collapse line="189" />
+			<Collapse line="234" />
+			<Collapse line="276" />
+			<Collapse line="306" />
+			<Collapse line="369" />
+			<Collapse line="442" />
+			<Collapse line="468" />
 		</Folding>
-	</File>
-	<File name="informes.h" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1602" topLine="0" />
-		</Cursor>
 	</File>
 	<File name="orquesta.h" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="1807" topLine="17" />
+			<Cursor1 position="1807" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="musico.h" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="instrumento.h" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="1674" topLine="18" />
+			<Cursor1 position="1987" topLine="16" />
 		</Cursor>
 	</File>
-	<File name="instrumento.c" open="0" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="orquesta.c" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="18274" topLine="515" />
+			<Cursor1 position="20373" topLine="219" />
+		</Cursor>
+		<Folding>
+			<Collapse line="52" />
+			<Collapse line="76" />
+			<Collapse line="102" />
+			<Collapse line="129" />
+			<Collapse line="189" />
+			<Collapse line="236" />
+			<Collapse line="280" />
+			<Collapse line="313" />
+			<Collapse line="387" />
+			<Collapse line="425" />
+			<Collapse line="466" />
+			<Collapse line="492" />
+			<Collapse line="538" />
+		</Folding>
+	</File>
+	<File name="informes.c" open="1" top="1" tabpos="2" split="0" active="1" splitpos="0" zoom_1="-1" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="5836" topLine="93" />
+		</Cursor>
+		<Folding>
+			<Collapse line="277" />
+			<Collapse line="323" />
+			<Collapse line="369" />
+			<Collapse line="397" />
+			<Collapse line="461" />
+			<Collapse line="644" />
+			<Collapse line="689" />
+			<Collapse line="717" />
+			<Collapse line="741" />
+		</Folding>
+	</File>
+	<File name="informes.h" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="475" topLine="1" />
 		</Cursor>
 	</File>
-	<File name="main.c" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="main.c" open="1" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="104" topLine="31" />
+			<Cursor1 position="289" topLine="62" />
 		</Cursor>
 	</File>
-	<File name="musico.c" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="musico.h" open="0" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="1073" topLine="556" />
+			<Cursor1 position="1714" topLine="0" />
 		</Cursor>
+	</File>
+	<File name="utn.c" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="13416" topLine="117" />
+		</Cursor>
+		<Folding>
+			<Collapse line="30" />
+			<Collapse line="89" />
+			<Collapse line="111" />
+			<Collapse line="151" />
+			<Collapse line="166" />
+			<Collapse line="195" />
+			<Collapse line="210" />
+			<Collapse line="239" />
+			<Collapse line="254" />
+			<Collapse line="283" />
+			<Collapse line="298" />
+			<Collapse line="329" />
+			<Collapse line="345" />
+			<Collapse line="376" />
+			<Collapse line="426" />
+			<Collapse line="455" />
+			<Collapse line="501" />
+			<Collapse line="517" />
+			<Collapse line="546" />
+			<Collapse line="561" />
+			<Collapse line="591" />
+			<Collapse line="599" />
+		</Folding>
 	</File>
 </CodeBlocks_layout_file>

@@ -8,39 +8,61 @@
 
 //strcmpi=strcasecmp windows=linux
 
+/** \brief Carga datos hardcodeados de musico
+ *
+ * \param arrayMusico[] Musico array de musico
+ * \return void
+ *
+ */
 void musico_hardcodeo(Musico arrayMusico[])
 {
-    strcpy(arrayMusico[0].nombre,"Sasha");//Sasha
-    strcpy(arrayMusico[0].apellido,"Lospalluto");
-    arrayMusico[0].edad=15;
+    strcpy(arrayMusico[0].nombre,"Mus1");//Sasha
+    strcpy(arrayMusico[0].apellido,"Amus1");
+    arrayMusico[0].edad=30;
     arrayMusico[0].isEmpty=0;
     arrayMusico[0].idUnico=1;
     arrayMusico[0].idOrquesta=1;
     arrayMusico[0].idInstrumento=2;
 
-    strcpy(arrayMusico[1].nombre,"Juan");//Juan Manuel
-    strcpy(arrayMusico[1].apellido,"Chico");
-    arrayMusico[1].edad=18;
+    strcpy(arrayMusico[1].nombre,"Mus2");//Juan Manuel
+    strcpy(arrayMusico[1].apellido,"Amus2");
+    arrayMusico[1].edad=20;
     arrayMusico[1].isEmpty=0;
     arrayMusico[1].idUnico=2;
     arrayMusico[1].idOrquesta=2;
-    arrayMusico[1].idInstrumento=2;
+    arrayMusico[1].idInstrumento=5;
 
-    strcpy(arrayMusico[2].nombre,"Sandra Angelica");//Sandra Angelica
-    strcpy(arrayMusico[2].apellido,"Alvez");
-    arrayMusico[2].edad=18;
+    strcpy(arrayMusico[2].nombre,"Mus3");//Sandra Angelica
+    strcpy(arrayMusico[2].apellido,"Amus3");
+    arrayMusico[2].edad=25;
     arrayMusico[2].isEmpty=0;
     arrayMusico[2].idUnico=3;
-    arrayMusico[2].idOrquesta=1;
-    arrayMusico[2].idInstrumento=1;
+    arrayMusico[2].idOrquesta=4;
+    arrayMusico[2].idInstrumento=2;
 
-    strcpy(arrayMusico[3].nombre,"Ricardo");//Sandra Angelica
-    strcpy(arrayMusico[3].apellido,"Rojas");
-    arrayMusico[3].edad=25;
+    strcpy(arrayMusico[3].nombre,"Mus4");//Sandra Angelica
+    strcpy(arrayMusico[3].apellido,"Amus4");
+    arrayMusico[3].edad=27;
     arrayMusico[3].isEmpty=0;
     arrayMusico[3].idUnico=4;
-    arrayMusico[3].idOrquesta=1;
-    arrayMusico[3].idInstrumento=3;
+    arrayMusico[3].idOrquesta=4;
+    arrayMusico[3].idInstrumento=1;
+
+    strcpy(arrayMusico[4].nombre,"Mus5");//Sandra Angelica
+    strcpy(arrayMusico[4].apellido,"Amus5");
+    arrayMusico[4].edad=22;
+    arrayMusico[4].isEmpty=0;
+    arrayMusico[4].idUnico=5;
+    arrayMusico[4].idOrquesta=1;
+    arrayMusico[4].idInstrumento=3;
+
+    strcpy(arrayMusico[5].nombre,"Mus6");//Sandra Angelica
+    strcpy(arrayMusico[5].apellido,"Amus6");
+    arrayMusico[5].edad=35;
+    arrayMusico[5].isEmpty=0;
+    arrayMusico[5].idUnico=6;
+    arrayMusico[5].idOrquesta=3;
+    arrayMusico[5].idInstrumento=4;
 }
 
 /** \brief  To indicate that all position in the array are empty,
@@ -463,7 +485,7 @@ int musico_listar(Musico array[], int size, int opcion, Instrumento arrayInstrum
         if(array!=NULL && size>=0)
         {
             //musico_ordenarPorString(array,size);
-            //musico_ordenarPorStringInsercion(array,size);
+            musico_ordenarPorStringInsercion(array,size);
             for(i=0;i<size;i++)
             {
                 if(array[i].isEmpty==1)
@@ -490,6 +512,13 @@ int musico_listar(Musico array[], int size, int opcion, Instrumento arrayInstrum
     return retorno;
 }
 
+/** \brief Verifica que todo el array este vacio, sin musicos cargados
+ *
+ * \param array[] Musico array de musico
+ * \param size int tamaño del array
+ * \return int int devuelve -1 si esta vacio,0 si hay al menos un musico
+ *
+ */
 int musico_todoVacio(Musico array[], int size)
 {
     int ret=-1;
@@ -518,40 +547,38 @@ int musico_todoVacio(Musico array[], int size)
 */
 int musico_ordenarPorStringInsercion(Musico array[],int size)                              //cambiar musico
 {
-    int retorno=-1;
-    int i, j;
-    char bufferNombre[TEXT_SIZE];                               //cambiar campo varString
-    char bufferApellido[TEXT_SIZE];
-    int bufferId;
-    int bufferIsEmpty;
+    int i;
+    int j;
+    Musico auxiliar;
+    char auxNombre[TEXT_SIZE];
 
-    if(array!=NULL && size>=0)
+    for (i=1; i<size; i++)
     {
-        for (i = 1; i < size; i++)
+        if(array[i].isEmpty==0)
         {
-            strcpy(bufferNombre,array[i].nombre);
-            strcpy(bufferApellido,array[i].apellido);                      //cambiar campo varString
-            bufferId=array[i].idUnico;                                   //cambiar campo id
-            bufferIsEmpty=array[i].isEmpty;
+            auxiliar = array[i];
+            strcpy(auxNombre , array[i].nombre);
             j = i - 1;
-            while ((j >= 0) && strcasecmp(bufferNombre,array[j].nombre)<0)         //cambiar campo varString                 //Si tiene mas de un criterio se lo agrego, Ej. bufferInt<array[j].varInt
-            {                                                                                                               //buffer < campo ascendente   buffer > campo descendente
-                strcpy(array[j + 1].nombre,array[j].nombre);          //cambiar campo varString
-                array[j + 1].idUnico=array[j].idUnico;                                //cambiar campo id
-                array[j + 1].isEmpty=array[j].isEmpty;
-                strcpy(array[j + 1].apellido,array[j].apellido);  //cambiar campo varLongString
+            while ( (strcmp(array[j].nombre , auxNombre) > 0) && (j >= 0))
+            {
+                array[j+1] = array[j];
                 j--;
             }
-            strcpy(array[j + 1].nombre,bufferNombre);                     //cambiar campo varString
-            strcpy(array[j + 1].apellido,bufferApellido);                     //cambiar campo varString
-            array[j + 1].idUnico=bufferId;                                        //cambiar campo id
-            array[j + 1].isEmpty=bufferIsEmpty;
+            array[j+1] = auxiliar;
         }
-        retorno=0;
     }
-    return retorno;
+    return 0;
 }
 
+/** \brief da de baja una orquesta junto con todos sus musicos
+ *
+ * \param array[] Musico array de musico
+ * \param size int tamaño del array de musico
+ * \param arrayOrquesta[] Orquesta array de orquesta
+ * \param sizeOrquesta int tamaño de la orquesta
+ * \return void
+ *
+ */
 void musico_bajaConOrquesta(Musico array[], int size, Orquesta arrayOrquesta[], int sizeOrquesta)
 {
     int i;

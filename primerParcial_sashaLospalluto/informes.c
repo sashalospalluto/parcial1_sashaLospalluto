@@ -8,7 +8,7 @@
 #include "musico.h"
 #include "informes.h"
 
-void informe_menu(Musico arrayMusico[], Orquesta arrayOrquesta[], Instrumento arrayInstrumento[],int sizeMusico, int sizeOrquesta, int sizeInstrumento)
+/*void informe_menu(Musico arrayMusico[], Orquesta arrayOrquesta[], Instrumento arrayInstrumento[],int sizeMusico, int sizeOrquesta, int sizeInstrumento)
 {
     int opcion;
     do
@@ -91,11 +91,55 @@ void informe_menu(Musico arrayMusico[], Orquesta arrayOrquesta[], Instrumento ar
 
     }while(opcion!=17);
 
+}*/
+
+void informe_menu(Musico arrayMusico[], Orquesta arrayOrquesta[], Instrumento arrayInstrumento[],int sizeMusico, int sizeOrquesta, int sizeInstrumento)
+{
+    int opcion;
+    do
+    {
+        utn_getUnsignedInt("\n\t\tMENU\n"
+                            "\n1) Listar las orquestas con mas de 5 musicos, indicando ID de orquesta, nombre, tipo y lugar"
+                            "\n2) Listar los musicos de mas de 30 años, indicando ID de musico, nombre,apellido,edad, nombre del instrumento y nombre de la orquesta"
+                            "\n3) Listar las orquestas de un lugar en particular ingresado por el usuario.Imprimir ID de orquesta, nombre, tipo y lugar"
+                            "\n4) Listar orquestas completas"
+                            "\n5) Listar todos los musicos de una orquesta dererminada"
+                            "\n6) imprimir la orquesta con mas musicos"
+                            "\n7) Listar los musicos que toquen instrumentos de cuerdas"
+                            "\n17) Salir\n \n\tIngrese una opcion: ",                //cambiar
+                           "\nError",1,sizeof(int),1,17,1,&opcion);
+        switch(opcion)
+        {
+        case 1:
+            informe_contarMusicos(arrayMusico,sizeMusico,arrayOrquesta,sizeOrquesta,'m');
+            break;
+        case 2:
+            informe_imprimirMusicoSegunEdad(arrayMusico,arrayOrquesta, arrayInstrumento,sizeMusico,sizeOrquesta,sizeInstrumento);
+            break;
+        case 3:
+            informe_listarOrquestaPorLugarParticular( arrayOrquesta, sizeOrquesta);
+            break;
+        case 4:
+            informe_listarOrquestasCompletas(arrayMusico,arrayOrquesta, arrayInstrumento,sizeMusico,sizeOrquesta,sizeInstrumento);
+            break;
+        case 5:
+            informe_listarMusicoConOrquesta(arrayMusico,sizeMusico,arrayOrquesta,sizeOrquesta,'p',arrayInstrumento,sizeInstrumento,'s',-1);
+            break;
+        case 6:
+            break;
+        case 7:
+            informe_imprimirMusicosPorTipoDeInstrumentoParticular(arrayMusico,sizeMusico,arrayInstrumento,sizeInstrumento,1);
+            break;
+        case 17: //salir
+            break;
+        }
+
+    }while(opcion!=17);
 }
 
-void informe_listarMusicoConOrquesta(Musico arrayMusico[], int sizeMusico, Orquesta arrayOrquesta[], int sizeOrquesta, char opcion,Instrumento arrayInstrumento[], int sizeInstrumento, char mostrarInstrumento)
+void informe_listarMusicoConOrquesta(Musico arrayMusico[], int sizeMusico, Orquesta arrayOrquesta[], int sizeOrquesta, char opcion,Instrumento arrayInstrumento[], int sizeInstrumento, char mostrarInstrumento, int id)
 {
-    int i,j,id,posicion;
+    int i,j,posicion;
     int bandera=-1;
     if (orquesta_todoVacio(arrayOrquesta,sizeOrquesta)==0 && musico_todoVacio(arrayMusico,sizeMusico)==0)
     {
@@ -134,7 +178,11 @@ void informe_listarMusicoConOrquesta(Musico arrayMusico[], int sizeMusico, Orque
             }
             else
             {
-                utn_getUnsignedInt("\nIngrese el codigo de la orquesta: ","\nError",1,sizeof(int),1,sizeOrquesta,1,&id);
+                if(id==-1)
+                {
+                    utn_getUnsignedInt("\nIngrese el codigo de la orquesta: ","\nError",1,sizeof(int),1,sizeOrquesta,1,&id);
+                }
+
                 if(orquesta_buscarID(arrayOrquesta,sizeOrquesta,id,&posicion)==-1)                                   //cambiar si no se busca por ID
                 {
                     printf("\nNo existe este ID");                                                          //cambiar si no se busca por ID
@@ -257,13 +305,15 @@ void informe_contarMusicos(Musico arrayMusico[], int sizeMusico, Orquesta arrayO
                         }
                     }
                 }
-                informe_ordenarOrquestaporCantMusicos(arrayOrquesta,sizeOrquesta,arrayContador,opcion);
+                //informe_ordenarOrquestaporCantMusicos(arrayOrquesta,sizeOrquesta,arrayContador,opcion);
                 for(i=0;i<sizeOrquesta;i++)
                 {
-                    if(arrayOrquesta[i].isEmpty==0)
+                    if(arrayOrquesta[i].isEmpty==0 && arrayContador[i]>=5)
                     {
-                        printf("\n\nOrquesta: %s",arrayOrquesta[i].nombre);
-                        printf("\nCantidad de musicos: %d ",arrayContador[i]);
+                        printf("\n\nID: %d",arrayOrquesta[i].idUnico);
+                        printf("\nOrquesta: %s",arrayOrquesta[i].nombre);
+                        printf("\nLugar: %s\n",arrayOrquesta[i].lugar);
+                        orquesta_mostrarTipo(arrayOrquesta[i].tipo);
                     }
                 }
         }
@@ -503,6 +553,7 @@ void informe_contarMusicosPorTipoDeInstrumento(Musico arrayMusico[], int sizeMus
 void informe_imprimirMusicosPorTipoDeInstrumentoParticular(Musico arrayMusico[],int sizeMusico,Instrumento arrayInstrumento[], int sizeInstrumento, int tipo)
 {
     int i,j;
+    int pos;
     switch (tipo)
     {
     case 1: //cuerdas
@@ -517,7 +568,13 @@ void informe_imprimirMusicosPorTipoDeInstrumentoParticular(Musico arrayMusico[],
                    {
                        if(arrayInstrumento[j].tipo==1)
                        {
-                           printf("\n %s %s", arrayMusico[i].nombre, arrayMusico[i].apellido);
+                           printf("\n\nNombre %s %s", arrayMusico[i].nombre, arrayMusico[i].apellido);
+                           printf("\nEdad: %d",arrayMusico[i].edad);
+                           if(instrumento_buscarID( arrayInstrumento, sizeInstrumento, arrayMusico[i].idInstrumento, &pos)==0)
+                           {
+                               printf("\n instrumento: %s\n", arrayInstrumento[i].nombre);
+                               instrumento_mostrarTipo(arrayInstrumento[i].tipo);
+                           }
                        }
                    }
                }
@@ -654,5 +711,112 @@ void informe_imprimirMusicosSegunPromedioEdad(Musico array[], int size)
                 printf("\n %s %s",array[i].nombre,array[i].apellido);
             }
         }
+    }
+}
+
+void informe_imprimirMusicoSegunEdad(Musico arrayMusico[], Orquesta arrayOrquesta[], Instrumento arrayInstrumento[],int sizeMusico, int sizeOrquesta, int sizeInstrumento)
+{
+    int i,posI,posO;
+    for (i=0;i<sizeMusico;i++)
+    {
+        if(arrayMusico[i].isEmpty==0)
+        {
+            if(arrayMusico[i].edad>30)
+            {
+                printf("\n\nID: %d",arrayMusico[i].idUnico);
+                printf("\nNombre y apellido %s %s",arrayMusico[i].nombre,arrayMusico[i].apellido);
+                if(instrumento_buscarID(arrayInstrumento, sizeInstrumento, arrayMusico[i].idInstrumento,&posI)==0)
+                {
+                    printf("\nInstrumento: %s ",arrayInstrumento[posI].nombre);
+                }
+                if(orquesta_buscarID( arrayOrquesta, sizeOrquesta, arrayMusico[i].idOrquesta,&posO)==0)
+                {
+                    printf("\nOrquesta: %s",arrayOrquesta[posO].nombre);
+                }
+
+            }
+        }
+    }
+}
+void informe_listarOrquestaPorLugarParticular(Orquesta array[], int size)
+{
+    int i;
+    int bandera=1;
+    char valorBuscado[TEXT_SIZE];
+    if(utn_getTexto("\nIngrese el lugar: ", "error, vuelva a intentar", 0, TEXT_SIZE, 3, valorBuscado)==0)
+    {
+        if(array!=NULL && size>=0)
+        {
+            for(i=0;i<size;i++)
+            {
+                if(array[i].isEmpty==1)
+                {
+                    continue;
+                }
+                else if(strcasecmp(array[i].lugar,valorBuscado)==0)                                        //cambiar campo nombre
+                {
+                    printf("\n\nID: %d",array[i].idUnico);
+                    printf("\nNombre: %s",array[i].nombre);
+                    printf("\nTipo: ");
+                    orquesta_mostrarTipo(array[i].tipo);
+                    printf("Lugar: %s", array[i].lugar);
+                    bandera=0;
+                }
+            }
+        }
+    }
+    else
+    {
+        printf("\nEl lugar no existe");
+    }
+
+    if(bandera==1)
+        {
+            printf("\nEl lugar no existe");
+        }
+}
+
+void informe_listarOrquestasCompletas(Musico arrayMusico[], Orquesta arrayOrquesta[], Instrumento arrayInstrumento[],int sizeMusico, int sizeOrquesta, int sizeInstrumento)
+{
+    int i,j;
+    int contadorC=0;
+    int contadorV=0;
+    int contadorP=0;
+    int pos,id;
+
+    for (i=0; i<sizeOrquesta;i++)
+    {
+        for (j=0; j<sizeMusico;j++)
+        {
+            if(arrayMusico[j].isEmpty==0 && arrayOrquesta[i].isEmpty==0)
+            {
+                if(arrayMusico[j].idOrquesta==arrayOrquesta[i].idUnico)
+                {
+                    if(instrumento_buscarID(arrayInstrumento, sizeInstrumento, arrayMusico[j].idInstrumento,&pos)==0)
+                    {
+                        if(arrayInstrumento[pos].tipo==1)//cuerdas
+                        {
+                            contadorC++;
+                        }
+                        if(arrayInstrumento[pos].tipo==2 || arrayInstrumento[pos].tipo==3)//viento
+                        {
+                            contadorV++;
+                        }
+                        if(arrayInstrumento[pos].tipo==4)//percusion
+                        {
+                            contadorP++;
+                        }
+                    }
+                }
+            }
+        }
+        id=i;
+        if(contadorC>=5 && contadorV>=3 && contadorP>=2)//532
+        {
+            informe_listarMusicoConOrquesta(arrayMusico,sizeMusico,arrayOrquesta,sizeOrquesta,'p',arrayInstrumento,sizeInstrumento,'s',id);
+        }
+        contadorC=0;
+        contadorV=0;
+        contadorP=0;
     }
 }

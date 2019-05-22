@@ -7,27 +7,38 @@
 
 //strcmpi=strcasecmp windows=linux
 
+/** \brief Carga datos hardcodeados de instrumentos
+ *
+ * \param arrayInstrumento[] Instrumento array de estructura
+ * \return void
+ *
+ */
 void instrumento_hardcodeo(Instrumento arrayInstrumento[])
 {
-    strcpy(arrayInstrumento[0].nombre,"guitarra");//Sasha
+    strcpy(arrayInstrumento[0].nombre,"Inst1");//Sasha
     arrayInstrumento[0].tipo=1;
     arrayInstrumento[0].isEmpty=0;
     arrayInstrumento[0].idUnico=1;
 
-    strcpy(arrayInstrumento[1].nombre,"Violin");//Juan Manuel
-    arrayInstrumento[1].tipo=4;
+    strcpy(arrayInstrumento[1].nombre,"Inst2");//Juan Manuel
+    arrayInstrumento[1].tipo=2;
     arrayInstrumento[1].isEmpty=0;
     arrayInstrumento[1].idUnico=2;
 
-    strcpy(arrayInstrumento[2].nombre,"charango");//Sandra Angelica
+    strcpy(arrayInstrumento[2].nombre,"Inst3");//Sandra Angelica
     arrayInstrumento[2].tipo=2;
     arrayInstrumento[2].isEmpty=0;
     arrayInstrumento[2].idUnico=3;
 
-    strcpy(arrayInstrumento[3].nombre,"acordeon");//Sandra Angelica
-    arrayInstrumento[3].tipo=1;
+    strcpy(arrayInstrumento[3].nombre,"Inst4");//Sandra Angelica
+    arrayInstrumento[3].tipo=3;
     arrayInstrumento[3].isEmpty=0;
     arrayInstrumento[3].idUnico=4;
+
+    strcpy(arrayInstrumento[4].nombre,"Inst5");//Sandra Angelica
+    arrayInstrumento[4].tipo=4;
+    arrayInstrumento[4].isEmpty=0;
+    arrayInstrumento[4].idUnico=5;
 }
 
 /** \brief  To indicate that all position in the array are empty,
@@ -421,6 +432,13 @@ int instrumento_listar(Instrumento array[], int size)                      //cam
     return retorno;
 }
 
+/** \brief Verifica que todo el array este vacio, sin instrumentos cargados
+ *
+ * \param array[] Instrumento array de instrumento
+ * \param size int tamaño del array
+ * \return int devuelve -1 si esta vacio,0 si hay al menos un instrumento
+ *
+ */
 int instrumento_todoVacio(Instrumento array[], int size)
 {
     int ret=-1;
@@ -483,6 +501,12 @@ int instrumento_ordenarPorStringInsercion(Instrumento array[],int size)         
     return retorno;
 }
 
+/** \brief pregunta y asigna el tipo de instrumento
+ *
+ * \param int* instrumento puntero que devuelve el tipo de instrumento ya validado
+ * \return -1 si no existe el tipo de instrumento,0 si se guardo correctamente
+ *
+ */
 int instrumento_tipoInstrumento (int* instrumento)
 {
     int opInstrumento;
@@ -516,6 +540,12 @@ int instrumento_tipoInstrumento (int* instrumento)
     return ret;
 }
 
+/** \brief muestra el tipo de instrumento de tipo int en forma de cadena de caracteres
+ *
+ * \param tipo int el tipo de instrumento que desea mostrar
+ * \return void
+ *
+ */
 void instrumento_mostrarTipo(int tipo)
 {
     switch(tipo)
@@ -535,6 +565,14 @@ void instrumento_mostrarTipo(int tipo)
     }
 }
 
+/** \brief lista un nombre de instrumento y tipo de instrumento particular, elegido por el usuario
+ *
+ * \param array[] Instrumento array de instrumento
+ * \param size int tamaño del array
+ * \param idBuscado int ID del instrumento pasado como valor
+ * \return void
+ *
+ */
 void instrumento_listarUnoParticular(Instrumento array[], int size,int idBuscado)
 {
     int i;

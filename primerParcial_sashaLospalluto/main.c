@@ -14,8 +14,8 @@ int main()
 {
     int opcion;
     int contadorIdOrquesta=4;                   //cambiar
-    int contadorIdMusico=4;
-    int contadorIdInstrumento=4;
+    int contadorIdMusico=6;
+    int contadorIdInstrumento=5;
 
     Orquesta arrayOrquesta[QTY_ORQUESTA];
     Musico arrayMusico[QTY_MUSICO];

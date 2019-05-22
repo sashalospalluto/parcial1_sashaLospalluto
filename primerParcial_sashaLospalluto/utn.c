@@ -558,8 +558,6 @@ int isValidAlphanumeric(char* stringRecibido)
     return retorno;
 }
 
-
-
 int utn_getChar(char* msg, char* msgError, int min, int max, int reintentos, char* resultado)
 {
     int retorno=-1;

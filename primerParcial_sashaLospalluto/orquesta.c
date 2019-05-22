@@ -8,28 +8,34 @@
 
 //strcmpi=strcasecmp windows=linux
 
+/** \brief Carga datos hardcodeados de orquesta
+ *
+ * \param arrayOrquesta[] Orquesta array de orquesta
+ * \return void
+ *
+ */
 void orquesta_hardcodeo(Orquesta arrayOrquesta[])
 {
-    strcpy(arrayOrquesta[0].nombre,"Berliner");//Berliner
-    strcpy(arrayOrquesta[0].lugar,"Alemania");
+    strcpy(arrayOrquesta[0].nombre,"Orquesta1");//Berliner
+    strcpy(arrayOrquesta[0].lugar,"Lugar1");
     arrayOrquesta[0].isEmpty=0;
     arrayOrquesta[0].idUnico=1;
     arrayOrquesta[0].tipo=1;
 
-    strcpy(arrayOrquesta[1].nombre,"Boston");//Juan Manuel
-    strcpy(arrayOrquesta[1].lugar,"Estados Unidos");
+    strcpy(arrayOrquesta[1].nombre,"Orquesta2");//Juan Manuel B
+    strcpy(arrayOrquesta[1].lugar,"Lugar1");
     arrayOrquesta[1].isEmpty=0;
     arrayOrquesta[1].idUnico=2;
-    arrayOrquesta[1].tipo=1;
+    arrayOrquesta[1].tipo=2;
 
-    strcpy(arrayOrquesta[2].nombre,"Concertgebouw");//Sandra Angelica
-    strcpy(arrayOrquesta[2].lugar,"Amsterdam");
+    strcpy(arrayOrquesta[2].nombre,"Orquesta3");//Sandra Angelica
+    strcpy(arrayOrquesta[2].lugar,"Lugar2");
     arrayOrquesta[2].isEmpty=0;
     arrayOrquesta[2].idUnico=3;
-    arrayOrquesta[2].tipo=2;
+    arrayOrquesta[2].tipo=3;
 
-    strcpy(arrayOrquesta[3].nombre,"Philharmonia");//Philharmonia
-    strcpy(arrayOrquesta[3].lugar,"Rusia");
+    strcpy(arrayOrquesta[3].nombre,"Orquesta4");//Philharmonia P
+    strcpy(arrayOrquesta[3].lugar,"Lugar3");
     arrayOrquesta[3].isEmpty=0;
     arrayOrquesta[3].idUnico=4;
     arrayOrquesta[3].tipo=3;
@@ -450,6 +456,13 @@ int orquesta_listar(Orquesta array[], int size)                      //cambiar o
     return retorno;
 }
 
+/** \brief Verifica que todo el array este vacio, sin orquestas cargadas
+ *
+ * \param array[] Orquesta array de orquesta
+ * \param size int tamaño del array
+ * \return int devuelve -1 si esta vacio el array, devuelve 0 si encontro al menos un array
+ *
+ */
 int orquesta_todoVacio(Orquesta array[], int size)
 {
     int ret=-1;
@@ -516,6 +529,12 @@ int orquesta_ordenarPorStringInsercion(Orquesta array[],int size)               
 }
 
 
+/** \brief pregunta y asigna el tipo de orquesta
+ *
+ * \param int* orquesta puntero que devuelve el tipo de la orquesta ya validada
+ * \return devuelve -1 si no existe el tipo de orquesta, 0 si se cargo correctamente el tipo
+ *
+ */
 int orquesta_tipoOrquesta (int* orquesta)
 {
     int opOrquesta;
@@ -545,6 +564,12 @@ int orquesta_tipoOrquesta (int* orquesta)
     return ret;
 }
 
+/** \brief muestra el tipo de orquesta en forma de cadena de caracteres
+ *
+ * \param tipo int tipo de orquesta
+ * \return void
+ *
+ */
 void orquesta_mostrarTipo(int tipo)
 {
     switch(tipo)
