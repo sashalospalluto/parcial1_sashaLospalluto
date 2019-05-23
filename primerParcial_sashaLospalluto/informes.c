@@ -104,7 +104,7 @@ void informe_menu(Musico arrayMusico[], Orquesta arrayOrquesta[], Instrumento ar
                             "\n3) Listar las orquestas de un lugar en particular ingresado por el usuario.Imprimir ID de orquesta, nombre, tipo y lugar"
                             "\n4) Listar orquestas completas"
                             "\n5) Listar todos los musicos de una orquesta dererminada"
-                            "\n6) imprimir la orquesta con mas musicos"
+                            //"\n6) imprimir la orquesta con mas musicos"
                             "\n7) Listar los musicos que toquen instrumentos de cuerdas"
                             "\n17) Salir\n \n\tIngrese una opcion: ",                //cambiar
                            "\nError",1,sizeof(int),1,17,1,&opcion);
@@ -304,6 +304,7 @@ void informe_contarMusicos(Musico arrayMusico[], int sizeMusico, Orquesta arrayO
                             }
                         }
                     }
+
                 }
                 //informe_ordenarOrquestaporCantMusicos(arrayOrquesta,sizeOrquesta,arrayContador,opcion);
                 for(i=0;i<sizeOrquesta;i++)
