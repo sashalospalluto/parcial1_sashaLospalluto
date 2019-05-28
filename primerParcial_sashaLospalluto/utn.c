@@ -5,28 +5,6 @@
 #include "utn.h"
 //#include <stdio_ext.h> //linux
 
-/*
-getString
-utn_getName
-utn_getNumero
-utn_getNumeroConSigno
-utn_getNumeroConDecimales
-utn_getTelefono
-utn_getDNI
-utn_getCUIT
-utn_getEmail
-utn_getTexto
-utn_getAlfanumerico
-utn_getFecha
-*/
-
-/*************************
-*
-*
-*param max Tamaño= elementos+1(\0)
-*
-***************************/
-
 int getString(char* msg, char* msgError, int min, int max, int* reintentos, char* resultado)
 {
     int retorno=-1;
@@ -54,7 +32,7 @@ int getString(char* msg, char* msgError, int min, int max, int* reintentos, char
     }
     return retorno;
 }
-//------------------------------
+
 int utn_getName(char* msg, char* msgError, int min, int max, int reintentos, char* resultado)
 {
     int retorno=-1;
@@ -69,14 +47,13 @@ int utn_getName(char* msg, char* msgError, int min, int max, int reintentos, cha
 
                 if(isValidName(bufferStr)==0)
                 {
-
                     strncpy(resultado,bufferStr,max);
                     retorno=0;
                     break;
                 }
                 else
                 {
-                    printf("%s 2",msgError);
+                    printf("%s, vuelva a intentar",msgError);
                     reintentos--;
                 }
             }
@@ -92,7 +69,6 @@ int isValidName(char* stringRecibido)   //si fuera un numero podrìa necesitar pa
     int i;
     for(i=0;stringRecibido[i]!='\0';i++)
     {
-        //printf("%d",i);
         if (isalpha(stringRecibido[i])!=0 || stringRecibido[i]==' ')
         {
             retorno=0;
@@ -107,12 +83,11 @@ int isValidName(char* stringRecibido)   //si fuera un numero podrìa necesitar pa
     return retorno;
 }
 
-//-----------------------------------------
 int utn_getUnsignedInt(  char* msg,char* msgError,int minSize,int maxSize,int min,int max,int reintentos,int* input)
 {
     int retorno=-1;
     char bufferStr[maxSize];
-    int auxInput; //nuevo
+    int auxInput;
 
     if(msg!=NULL && msgError!=NULL && minSize<maxSize && min<max && reintentos>=0 && input!=NULL)
     {
@@ -122,7 +97,7 @@ int utn_getUnsignedInt(  char* msg,char* msgError,int minSize,int maxSize,int mi
             {
                 if(isValidNumber(bufferStr)==1)
                 {
-                    auxInput=atoi(bufferStr); //nuevo
+                    auxInput=atoi(bufferStr);
 
                     if(auxInput>=min && auxInput<=max)
                     {
@@ -135,11 +110,6 @@ int utn_getUnsignedInt(  char* msg,char* msgError,int minSize,int maxSize,int mi
                         printf("%s 2",msgError);
                         reintentos--;
                     }
-
-                }
-                else
-                {
-
                 }
             }
         }
@@ -162,7 +132,7 @@ int isValidNumber(char* stringRecibido)
     }
     return retorno;
 }
-//-------------------------------------------------
+
 int utn_getSignedInt(char* msg, char* msgError, int minSize, int maxSize, int min, int max, int reintentos, int* input)
 {
     int retorno=-1;
@@ -206,7 +176,7 @@ int isValidSignedNumber(char* stringRecibido)
     }
     return retorno;
 }
-//*******************************************************
+
 int utn_getFloat(char* msg, char* msgError, int minSize, int maxSize, int min, int max, int reintentos, float* input)
 {
     int retorno=-1;
@@ -250,7 +220,7 @@ int isValidFloatNumber(char* stringRecibido)
     }
     return retorno;
 }
-//*************************************************************
+
 int utn_getTelefono(char* msg, char* msgError, int minSize, int maxSize, int min, int max, int reintentos, char* input)
 {
     int retorno=-1;
@@ -294,7 +264,7 @@ int isValidTelephone(char* stringRecibido)
     }
     return retorno;
 }
-//***************************************
+
 int utn_getDNI(char* msg, char* msgError, int minSize, int maxSize, int reintentos, char* input)
 {
     maxSize=11; //con puntos
@@ -341,7 +311,6 @@ int isValidDNI(char* stringRecibido)
     return retorno;
 }
 
-//***************************************
 int utn_getCUIT(char* msg, char* msgError, int reintentos, char* input)
 {
     int maxSize=14; //con guiones 13 elementos
@@ -422,7 +391,6 @@ int isValidCUIT(char* stringRecibido)
     return retorno;
 }
 
-//*************************************************************
 int utn_getEmail(char* msg, char* msgError, int minSize, int maxSize, int reintentos, char* input)
 {
     int retorno=-1;
@@ -468,7 +436,6 @@ int isValidEmail(char* stringRecibido)
     return retorno;
 }
 
-//*************************************************************
 int utn_getTexto(char* msg, char* msgError, int minSize, int maxSize, int reintentos, char* input)
 {
     int retorno=-1;
@@ -513,7 +480,7 @@ int isValidTexto(char* stringRecibido)
     return retorno;
 }
 
-//*************************************************************
+
 int utn_getAlfanumerico(char* msg, char* msgError, int minSize, int maxSize, int reintentos, char* input)
 {
     int retorno=-1;
@@ -686,6 +653,5 @@ int utn_getFecha(int* dia, int* mes, int* agno)
     {
         printf("\nError al ingresar el año\n");
     }
-
     return retorno;
 }

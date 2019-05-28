@@ -20,16 +20,16 @@ typedef struct
 #endif // MUSICO_H_INCLUDED
 int musico_todoVacio(Musico array[], int size);
 void musico_hardcodeo(Musico arrayMusico[]);
-int musico_Inicializar(Musico array[], int size);                                    //cambiar musico
-int musico_buscarEmpty(Musico array[], int size, int* posicion);                    //cambiar musico
-int musico_buscarID(Musico array[], int size, int valorBuscado, int* posicion);                    //cambiar musico
-int musico_buscarInt(Musico array[], int size, int valorBuscado, int* posicion);                    //cambiar musico
-int musico_buscarString(Musico array[], int size, char* valorBuscado, int* indice);                    //cambiar musico
+int musico_Inicializar(Musico array[], int size);
+int musico_buscarEmpty(Musico array[], int size, int* posicion);
+int musico_buscarID(Musico array[], int size, int valorBuscado, int* posicion);
+int musico_buscarInt(Musico array[], int size, int valorBuscado, int* posicion);
+int musico_buscarString(Musico array[], int size, char* valorBuscado, int* indice);
 int musico_alta(Musico array[], int size, int* contadorID, Orquesta arrayOrquesta[], int sizeOrquesta, Instrumento arrayInstrumento[],int sizeInstrumento);
-int musico_baja(Musico array[], int sizeArray);                                      //cambiar musico
+int musico_baja(Musico array[], int sizeArray);
 int musico_bajaValorRepetidoInt(Musico array[], int sizeArray, int valorBuscado);
 int musico_modificar(Musico array[], int sizeArray, Orquesta arrayOrquesta[], int sizeOrquesta);
-void musico_ordenarPorString(Musico array[],int size);                              //cambiar musico
-int musico_listar(Musico array[], int size, int opcion, Instrumento arrayInstrumento[], int sizeInstrumento) ;                      //cambiar musico
-int musico_ordenarPorStringInsercion(Musico array[],int size);                              //cambiar musico
+void musico_ordenarPorString(Musico array[],int size);
+int musico_listar(Musico array[], int size, int opcion, Instrumento arrayInstrumento[], int sizeInstrumento) ;
+int musico_ordenarPorStringInsercion(Musico array[],int size);
 void musico_bajaConOrquesta(Musico array[], int size, Orquesta arrayOrquesta[], int sizeOrquesta);
