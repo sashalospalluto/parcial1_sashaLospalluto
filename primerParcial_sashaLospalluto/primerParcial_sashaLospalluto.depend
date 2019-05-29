@@ -184,7 +184,7 @@
 	<ctype.h>
 	"utn.h"
 
-1559075722 source:c:\users\sashaoriana\documents\utn2019\parcial1_sashalospalluto-master\primerparcial_sashalospalluto\informes.c
+1559091240 source:c:\users\sashaoriana\documents\utn2019\parcial1_sashalospalluto-master\primerparcial_sashalospalluto\informes.c
 	<string.h>
 	<stdio.h>
 	<stdlib.h>
@@ -194,7 +194,7 @@
 	"musico.h"
 	"informes.h"
 
-1558570439 c:\users\sashaoriana\documents\utn2019\parcial1_sashalospalluto-master\primerparcial_sashalospalluto\utn.h
+1559082737 c:\users\sashaoriana\documents\utn2019\parcial1_sashalospalluto-master\primerparcial_sashalospalluto\utn.h
 
 1559080045 c:\users\sashaoriana\documents\utn2019\parcial1_sashalospalluto-master\primerparcial_sashalospalluto\orquesta.h
 
@@ -208,14 +208,14 @@
 	"orquesta.h"
 	"musico.h"
 
-1559077925 source:c:\users\sashaoriana\documents\utn2019\parcial1_sashalospalluto-master\primerparcial_sashalospalluto\instrumento.c
+1559090439 source:c:\users\sashaoriana\documents\utn2019\parcial1_sashalospalluto-master\primerparcial_sashalospalluto\instrumento.c
 	<string.h>
 	<stdio.h>
 	<stdlib.h>
 	"utn.h"
 	"instrumento.h"
 
-1559078320 source:c:\users\sashaoriana\documents\utn2019\parcial1_sashalospalluto-master\primerparcial_sashalospalluto\main.c
+1559083482 source:c:\users\sashaoriana\documents\utn2019\parcial1_sashalospalluto-master\primerparcial_sashalospalluto\main.c
 	<string.h>
 	<stdio.h>
 	<stdlib.h>
@@ -225,7 +225,7 @@
 	"informes.h"
 	"utn.h"
 
-1559079075 source:c:\users\sashaoriana\documents\utn2019\parcial1_sashalospalluto-master\primerparcial_sashalospalluto\musico.c
+1559090151 source:c:\users\sashaoriana\documents\utn2019\parcial1_sashalospalluto-master\primerparcial_sashalospalluto\musico.c
 	<string.h>
 	<stdio.h>
 	<stdlib.h>
@@ -233,7 +233,7 @@
 	"musico.h"
 	"orquesta.h"
 
-1559080542 source:c:\users\sashaoriana\documents\utn2019\parcial1_sashalospalluto-master\primerparcial_sashalospalluto\orquesta.c
+1559084414 source:c:\users\sashaoriana\documents\utn2019\parcial1_sashalospalluto-master\primerparcial_sashalospalluto\orquesta.c
 	<string.h>
 	<stdio.h>
 	<stdlib.h>
@@ -241,7 +241,7 @@
 	"orquesta.h"
 	"musico.h"
 
-1559080533 source:c:\users\sashaoriana\documents\utn2019\parcial1_sashalospalluto-master\primerparcial_sashalospalluto\utn.c
+1559084200 source:c:\users\sashaoriana\documents\utn2019\parcial1_sashalospalluto-master\primerparcial_sashalospalluto\utn.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>

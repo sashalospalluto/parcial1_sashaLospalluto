@@ -195,6 +195,7 @@ int instrumento_alta(Instrumento array[], int size, int* contadorID)
         }
     retorno=0;
     }
+    utn_pausa();
     return retorno;
 }
 
@@ -232,7 +233,7 @@ int instrumento_baja(Instrumento array[], int sizeArray)
             }
         }
     }
-
+    utn_pausa();
     return retorno;
 }
 
@@ -316,6 +317,7 @@ int instrumento_modificar(Instrumento array[], int sizeArray)
             retorno=0;
         }
     }
+    utn_pausa();
     return retorno;
 }
 
@@ -383,6 +385,7 @@ int instrumento_listar(Instrumento array[], int size)
             retorno=0;
         }
     }
+    utn_pausa();
     return retorno;
 }
 

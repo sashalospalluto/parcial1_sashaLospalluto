@@ -34,3 +34,7 @@ int utn_getChar(char* msg, char* msgError, int min, int max, int reintentos, cha
 int isValidChar(char charRecibido);
 
 int utn_getFecha(int* dia, int* mes, int* agno);
+
+void utn_limpiarBuffer();
+void utn_limpiarPantalla();
+void utn_pausa();

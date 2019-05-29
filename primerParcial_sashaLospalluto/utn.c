@@ -15,7 +15,7 @@ int getString(char* msg, char* msgError, int min, int max, int* reintentos, char
         do
         {
             printf("%s",msg);   //no poner salto de linea, se va a pasar en el mensaje por valor
-            //fflush(stdin);
+            utn_limpiarBuffer();
             fgets(bufferStr,sizeof(bufferStr),stdin);
             bufferStr[strlen(bufferStr)-1]='\0';
 
@@ -25,7 +25,7 @@ int getString(char* msg, char* msgError, int min, int max, int* reintentos, char
                 retorno=0;
                 break;
             }
-            printf("%s 1",msgError);
+            printf("%s ",msgError);
             (*reintentos)--;
         }
         while((*reintentos)>=0);
@@ -53,8 +53,11 @@ int utn_getName(char* msg, char* msgError, int min, int max, int reintentos, cha
                 }
                 else
                 {
-                    printf("%s, vuelva a intentar",msgError);
                     reintentos--;
+                    if(reintentos>=0)
+                    {
+                        printf("%s, vuelva a intentar\n",msgError);
+                    }
                 }
             }
         }
@@ -107,7 +110,7 @@ int utn_getUnsignedInt(  char* msg,char* msgError,int minSize,int maxSize,int mi
                     }
                     else
                     {
-                        printf("%s 2",msgError);
+                        printf("%s ",msgError);
                         reintentos--;
                     }
                 }
@@ -447,8 +450,10 @@ int utn_getTexto(char* msg, char* msgError, int minSize, int maxSize, int reinte
         {
             if(!getString(msg,msgError,minSize,maxSize,&reintentos,bufferStr)) //==0 sin errores !0
             {
+                utn_limpiarBuffer();
                 if(isValidTexto(bufferStr)==1)
                 {
+
                     strncpy(input,bufferStr,maxSize);
                     retorno=0;
                     break;
@@ -654,4 +659,32 @@ int utn_getFecha(int* dia, int* mes, int* agno)
         printf("\nError al ingresar el año\n");
     }
     return retorno;
+}
+
+void utn_limpiarBuffer()
+{
+    fflush(stdin);
+    //__fpurge();
+    /*
+    int ch;
+    while ((ch = getchar()) != '\n' && ch != EOF);
+    */
+}
+
+void utn_limpiarPantalla()
+{
+    system("cls");
+    //system("clear");
+}
+
+void utn_pausa()
+{
+    printf("\n\n\n");
+    system("pause");
+    /*
+    printf("Pulse una tecla para continuar....\n");
+    // getchar esperara a que el usuario pulse una tecla para continuar
+    __fpurge(stdin);
+    getchar();
+    */
 }

@@ -24,9 +24,10 @@ void informe_menu(Musico arrayMusico[], Orquesta arrayOrquesta[], Instrumento ar
     int opcion;
     do
     {
+        utn_limpiarPantalla();
         utn_getUnsignedInt("\n\t\tMENU\n"
                             "\n1) Listar las orquestas con mas de 5 musicos, indicando ID de orquesta, nombre, tipo y lugar"
-                            "\n2) Listar los musicos de mas de 30 años, indicando ID de musico, nombre,apellido,edad, nombre del instrumento y nombre de la orquesta"
+                            "\n2) Listar los musicos de mas de 30 agnos, indicando ID de musico, nombre,apellido,edad, nombre del instrumento y nombre de la orquesta"
                             "\n3) Listar las orquestas de un lugar en particular ingresado por el usuario.Imprimir ID de orquesta, nombre, tipo y lugar"
                             "\n4) Listar orquestas completas"
                             "\n5) Listar todos los musicos de una orquesta dererminada"
@@ -153,6 +154,7 @@ void informe_listarMusicoConOrquesta(Musico arrayMusico[], int sizeMusico, Orque
             }
         }
     }
+    utn_pausa();
 }
 
 /** \brief Lista las orquestas con mas de 5 musicos con sus datos (id de orquesta, nombre, tipo y lugar)
@@ -167,6 +169,7 @@ void informe_listarMusicoConOrquesta(Musico arrayMusico[], int sizeMusico, Orque
 void informe_contarMusicos(Musico arrayMusico[], int sizeMusico, Orquesta arrayOrquesta[], int sizeOrquesta)
 {
     int i,j;
+    int bandera=0;
     int arrayContador[sizeOrquesta];
     for(i=0;i<sizeOrquesta;i++)
     {
@@ -201,10 +204,16 @@ void informe_contarMusicos(Musico arrayMusico[], int sizeMusico, Orquesta arrayO
                     printf("\nOrquesta: %s",arrayOrquesta[i].nombre);
                     printf("\nLugar: %s\n",arrayOrquesta[i].lugar);
                     orquesta_mostrarTipo(arrayOrquesta[i].tipo);
+                    bandera=1;
                 }
+            }
+            if(bandera==0)
+            {
+                printf("\nNinguna orquesta cumple los requisitos\n");
             }
         }
     }
+    utn_pausa();
 }
 
 /** \brief Lista los musicos que toquen un instrumento en particular,ordenado por apellido
@@ -258,8 +267,8 @@ void informe_imprimirMusicosPorTipoDeInstrumentoParticular(Musico arrayMusico[],
         {
             if(auxiliar[i].isEmpty==0)
             {
-               printf("\n\nNombre %s %s", auxiliar[i].nombre, auxiliar[i].apellido);
-               printf("\nEdad: %d",auxiliar[i].edad);
+               printf("\n\n Nombre %s %s", auxiliar[i].nombre, auxiliar[i].apellido);
+               printf("\n Edad: %d",auxiliar[i].edad);
                if(instrumento_buscarID( arrayInstrumento, sizeInstrumento, auxiliar[i].idInstrumento, &pos)==0)
                {
                    printf("\n instrumento: %s\n", arrayInstrumento[pos].nombre);
@@ -326,6 +335,7 @@ void informe_imprimirMusicosPorTipoDeInstrumentoParticular(Musico arrayMusico[],
         }
         break;
     }
+    utn_pausa();
 }
 
 /** \brief Lista los musicos de mas de 30 años, con sus respectivos datos y orquesta a la que pertenece
@@ -361,6 +371,7 @@ void informe_imprimirMusicoSegunEdad(Musico arrayMusico[], Orquesta arrayOrquest
             }
         }
     }
+    utn_pausa();
 }
 
 /** \brief  Lista las orquestas de un lugar en particular ingresado por el usuario
@@ -403,9 +414,10 @@ void informe_listarOrquestaPorLugarParticular(Orquesta array[], int size)
     }
 
     if(bandera==1)
-        {
-            printf("\nEl lugar no existe");
-        }
+    {
+        printf("\nEl lugar no existe");
+    }
+    utn_pausa();
 }
 
 /** \brief Lista las orquestas completas (tiene que tener al menos 5 instrumentos de cuerda, 3 de viento y 2 de percusion)
@@ -422,6 +434,7 @@ void informe_listarOrquestaPorLugarParticular(Orquesta array[], int size)
 void informe_listarOrquestasCompletas(Musico arrayMusico[], Orquesta arrayOrquesta[], Instrumento arrayInstrumento[],int sizeMusico, int sizeOrquesta, int sizeInstrumento)
 {
     int i,j;
+    int bandera=0;
     int contadorC=0;
     int contadorV=0;
     int contadorP=0;
@@ -457,11 +470,17 @@ void informe_listarOrquestasCompletas(Musico arrayMusico[], Orquesta arrayOrques
         if(contadorC>=5 && contadorV>=3 && contadorP>=2)//532
         {
             informe_listarMusicoConOrquesta(arrayMusico,sizeMusico,arrayOrquesta,sizeOrquesta,'p',arrayInstrumento,sizeInstrumento,'s',id);
+            bandera=1;
         }
         contadorC=0;
         contadorV=0;
         contadorP=0;
     }
+    if(bandera==0)
+    {
+        printf("\n Ninguna orquesta cumple los requisitos\n");
+    }
+    utn_pausa();
 }
 
 /** \brief Imprime la orquesta con mas musicos con sus respectivos datos y cantidad de musicos que lo integran
@@ -520,6 +539,7 @@ void informe_orquestaConMasMusicos(Musico arrayMusico[], Orquesta arrayOrquesta[
             }
         }
     }
+    utn_pausa();
 }
 
 /** \brief Imprime el promedio de musicos por orquesta
@@ -535,8 +555,8 @@ void informe_promedioDeMusicosPorOrquesta(Musico arrayMusico[], Orquesta arrayOr
 {
     int i,j;
     float promedio;
-    float contador=0;
-    float cantidadOrquestas=0;
+    int contador=0;
+    int cantidadOrquestas=0;
 
     if (orquesta_todoVacio(arrayOrquesta,sizeOrquesta)==0 && musico_todoVacio(arrayMusico,sizeMusico)==0)
     {
@@ -558,8 +578,9 @@ void informe_promedioDeMusicosPorOrquesta(Musico arrayMusico[], Orquesta arrayOr
                 cantidadOrquestas++;
             }
         }
-        promedio=contador/cantidadOrquestas;
-        printf("El promedio es: %.2f",promedio);
+        promedio=(float)contador/(float)cantidadOrquestas;
+        printf("\n El promedio es: %.2f",promedio);
     }
+    utn_pausa();
 }
 

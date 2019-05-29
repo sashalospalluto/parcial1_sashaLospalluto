@@ -217,14 +217,14 @@ int musico_alta(Musico array[], int size, int* contadorID, Orquesta arrayOrquest
         {
             printf("\nNo hay lugares vacios");
         }
-        else if(utn_getName("\nNombre: ","\nError",1,TEXT_SIZE,1,array[posicion].nombre)==0 &&
-               utn_getName("\nApellido: ","\nError",1,TEXT_SIZE,1,array[posicion].apellido)==0 &&
-               utn_getUnsignedInt("\nEdad: ","\nError",1,sizeof(int),12,99,3,&array[posicion].edad)==0)
+        else if(utn_getName("\nNombre: ","\nError, nombre no valido",1,TEXT_SIZE,2,array[posicion].nombre)==0 &&
+               utn_getName("\nApellido: ","\nError, apellido no valido",1,TEXT_SIZE,1,array[posicion].apellido)==0 &&
+               utn_getUnsignedInt("\nEdad: ","\nError, edad no valida",1,sizeof(int),12,99,3,&array[posicion].edad)==0)
                {
-                    if(utn_getUnsignedInt("\nId de la orquesta: ","\nError",1,sizeof(int),1,10000,3,&idOrquesta)==0 &&
+                    if(utn_getUnsignedInt("\nId de la orquesta: ","\nError",1,sizeof(int),1,50,3,&idOrquesta)==0 &&
                        orquesta_buscarID(arrayOrquesta,sizeOrquesta,idOrquesta,&pos)==0)
                     {
-                        if(utn_getUnsignedInt("\nId del instrumento: ","\nError",1,sizeof(int),1,10000,3,&idInstrumento)==0 &&
+                        if(utn_getUnsignedInt("\nId del instrumento: ","\nError",1,sizeof(int),1,20,3,&idInstrumento)==0 &&
                             instrumento_buscarID(arrayInstrumento,sizeInstrumento,idInstrumento,&pos)==0)
                         {
                             array[posicion].idOrquesta=idOrquesta;
@@ -234,6 +234,7 @@ int musico_alta(Musico array[], int size, int* contadorID, Orquesta arrayOrquest
                             array[posicion].isEmpty=0;
                             printf("\n Posicion: %d\n ID: %d\n nombre: %s\n apellido: %s\n Edad: %d\n id orquesta: %d \n id instrumento: %d",
                             posicion, array[posicion].idUnico,array[posicion].nombre,array[posicion].apellido, array[posicion].edad, array[posicion].idOrquesta, array[posicion].idInstrumento);
+                            printf("\n\n MUSICO CARGADO CORRECTAMENTE\n");
                         }
                         else
                         {
@@ -251,7 +252,9 @@ int musico_alta(Musico array[], int size, int* contadorID, Orquesta arrayOrquest
                }
         retorno=0;
     }
+    utn_pausa();
     return retorno;
+
 }
 
 /** \brief Borra un elemento del array por ID
@@ -291,6 +294,7 @@ int musico_baja(Musico array[], int sizeArray)
             }
         }
     }
+    utn_pausa();
     return retorno;
 }
 
@@ -391,6 +395,7 @@ int musico_modificar(Musico array[], int sizeArray, Orquesta arrayOrquesta[], in
             }
         }
     }
+    utn_pausa();
     return retorno;
 }
 
@@ -469,6 +474,7 @@ int musico_listar(Musico array[], int size, int opcion, Instrumento arrayInstrum
             retorno=0;
         }
     }
+    utn_pausa();
     return retorno;
 }
 

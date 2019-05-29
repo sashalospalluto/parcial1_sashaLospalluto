@@ -192,8 +192,8 @@ int orquesta_alta(Orquesta array[], int size, int* contadorID)
         }
         else
         {
-            if(utn_getName("\nNombre: ","\nError al ingresar el nombre de la orquesta",1,TEXT_SIZE,1,array[posicion].nombre)==0 &&
-               utn_getTexto("\nLugar: ","\nError al ingresar el lugar",1,TEXT_SIZE,1,array[posicion].lugar)==0)
+            if(utn_getName("\nNombre: ","\nError al ingresar el nombre de la orquesta",1,TEXT_SIZE,2,array[posicion].nombre)==0 &&
+               utn_getTexto("\nLugar: ","\nError al ingresar el lugar",1,TEXT_SIZE,2,array[posicion].lugar)==0)
                {
                     if((orquesta_tipoOrquesta(&array[posicion].tipo))==0)
                     {
@@ -206,11 +206,12 @@ int orquesta_alta(Orquesta array[], int size, int* contadorID)
                }
                else
                {
-                   printf("\nError\n");
+                   printf("\nNo ingreso un nombre\n");
                }
         }
 
     }
+    utn_pausa();
     return retorno;
 }
 
@@ -252,6 +253,7 @@ int orquesta_baja(Orquesta array[], int sizeArray, int* idBuscado)
             }
         }
     }
+    utn_pausa();
     return retorno;
 }
 
@@ -422,6 +424,7 @@ int orquesta_listar(Orquesta array[], int size)
             retorno=0;
         }
     }
+    utn_pausa();
     return retorno;
 }
 
@@ -505,7 +508,7 @@ int orquesta_tipoOrquesta (int* orquesta)
     int opOrquesta;
     int ret=-1;
 
-    if(utn_getUnsignedInt("\n\tTIPOS DE ORQUESTAS\n1-Sinfonica\n2-Filarmonica\n3-Camara\n\tElija un tipo de orquesta: ","Error",0,3,0,3,3,&opOrquesta)==0)
+    if(utn_getUnsignedInt("\n\tTIPOS DE ORQUESTAS\n1-Sinfonica\n2-Filarmonica\n3-Camara\n\tElija un tipo de orquesta: ","\ntipo de orquesta no valido\n",0,3,0,3,2,&opOrquesta)==0)
     {
         switch(opOrquesta)
         {

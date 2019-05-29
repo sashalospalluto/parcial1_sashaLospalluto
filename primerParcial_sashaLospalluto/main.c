@@ -31,6 +31,7 @@ int main()
 
     do
     {
+        utn_limpiarPantalla();
         utn_getUnsignedInt("\n\t\tMENU\n\n1) Agregar orquesta \n2) Eliminar orquesta \n3) Imprimir orquestas \n4) Agregar musico\n"
                                "5) Modificar musico \n6) Elimminar musico \n7) Imprimir musicos \n8) Agregar instrumento\n"
                                "9) Imprimir instrumentos \n10) Informes \n11) Salir\n \n\tIngrese una opcion: ",
