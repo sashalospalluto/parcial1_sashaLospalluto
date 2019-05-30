@@ -6,7 +6,7 @@
 	"utn.h"
 	"instrumento.h"
 
-1558300308 to.h"
+1559090439 to.h"
 
 1558051535 source:/home/alumno/Documentos/sashaLospalluto/primerParcial_sashaLospalluto/main.c
 	<string.h>
@@ -29,7 +29,7 @@
 	"musico.h"
 	"orquesta.h"
 
-1558493900 h"
+1559090151 h"
 
 1558046326 source:/home/alumno/Documentos/sashaLospalluto/primerParcial_sashaLospalluto/orquesta.c
 	<string.h>
@@ -97,7 +97,7 @@
 	"orquesta.h"
 	"musico.h"
 
-1558292173 
+1559084200 
 
 1558292173 source:c:\users\sashaoriana\documents\utn2019\parcial1_sashalospalluto-master\parcial1_sashalospalluto-master\primerparcial_sashalospalluto\utn.c
 	<stdio.h>
@@ -247,4 +247,69 @@
 	<string.h>
 	<ctype.h>
 	"utn.h"
+
+1559255769 source:/home/alumno/Documentos/sashaLospalluto/parcial1_sashaLospalluto-master/primerParcial_sashaLospalluto/informes.c
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	"utn.h"
+	"orquesta.h"
+	"instrumento.h"
+	"musico.h"
+	"informes.h"
+
+1559091850 /home/alumno/Documentos/sashaLospalluto/parcial1_sashaLospalluto-master/primerParcial_sashaLospalluto/utn.h
+
+1559091850 /home/alumno/Documentos/sashaLospalluto/parcial1_sashaLospalluto-master/primerParcial_sashaLospalluto/orquesta.h
+
+1559091850 /home/alumno/Documentos/sashaLospalluto/parcial1_sashaLospalluto-master/primerParcial_sashaLospalluto/instrumento.h
+
+1559091850 /home/alumno/Documentos/sashaLospalluto/parcial1_sashaLospalluto-master/primerParcial_sashaLospalluto/musico.h
+	"orquesta.h"
+	"instrumento.h"
+
+1559091850 /home/alumno/Documentos/sashaLospalluto/parcial1_sashaLospalluto-master/primerParcial_sashaLospalluto/informes.h
+	"orquesta.h"
+	"musico.h"
+
+1559252819 source:/home/alumno/Documentos/sashaLospalluto/parcial1_sashaLospalluto-master/primerParcial_sashaLospalluto/instrumento.c
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	"utn.h"
+	"instrumento.h"
+
+1559091850 source:/home/alumno/Documentos/sashaLospalluto/parcial1_sashaLospalluto-master/primerParcial_sashaLospalluto/main.c
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	"orquesta.h"
+	"musico.h"
+	"instrumento.h"
+	"informes.h"
+	"utn.h"
+
+1559255286 source:/home/alumno/Documentos/sashaLospalluto/parcial1_sashaLospalluto-master/primerParcial_sashaLospalluto/musico.c
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	"utn.h"
+	"musico.h"
+	"orquesta.h"
+
+1559252819 source:/home/alumno/Documentos/sashaLospalluto/parcial1_sashaLospalluto-master/primerParcial_sashaLospalluto/orquesta.c
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	"utn.h"
+	"orquesta.h"
+	"musico.h"
+
+1559252904 source:/home/alumno/Documentos/sashaLospalluto/parcial1_sashaLospalluto-master/primerParcial_sashaLospalluto/utn.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"utn.h"
+	<stdio_ext.h>
 

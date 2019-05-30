@@ -22,7 +22,7 @@ void musico_hardcodeo(Musico arrayMusico[])
     arrayMusico[0].isEmpty=0;
     arrayMusico[0].idUnico=1;
     arrayMusico[0].idOrquesta=1;
-    arrayMusico[0].idInstrumento=1;
+    arrayMusico[0].idInstrumento=2;
 
     strcpy(arrayMusico[1].nombre,"Mus2");
     strcpy(arrayMusico[1].apellido,"Amus2");

@@ -134,11 +134,13 @@ void informe_listarMusicoConOrquesta(Musico arrayMusico[], int sizeMusico, Orque
                 else
                 {
                     printf("\n\n\tOrquesta %s\n",arrayOrquesta[posicion].nombre);
+
                     for(i=0;i<sizeMusico;i++)
                     {
                         if(arrayOrquesta[posicion].idUnico==arrayMusico[i].idOrquesta)
                         {
                             printf("\n Musico: %s %s",arrayMusico[i].nombre,arrayMusico[i].apellido);
+                            printf("\n Edad: %d",arrayMusico[i].edad);
                             if(mostrarInstrumento=='s')
                             {
                                 instrumento_listarUnoParticular(arrayInstrumento,sizeInstrumento,arrayMusico[i].idInstrumento);

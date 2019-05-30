@@ -3,7 +3,7 @@
 #include <string.h>
 #include <ctype.h>
 #include "utn.h"
-//#include <stdio_ext.h> //linux
+#include <stdio_ext.h> //linux
 
 int getString(char* msg, char* msgError, int min, int max, int* reintentos, char* resultado)
 {
@@ -673,18 +673,18 @@ void utn_limpiarBuffer()
 
 void utn_limpiarPantalla()
 {
-    system("cls");
-    //system("clear");
+    //system("cls");
+    system("clear");
 }
 
 void utn_pausa()
 {
-    printf("\n\n\n");
-    system("pause");
-    /*
+    //printf("\n\n\n");
+    //system("pause");
+
     printf("Pulse una tecla para continuar....\n");
     // getchar esperara a que el usuario pulse una tecla para continuar
     __fpurge(stdin);
     getchar();
-    */
+
 }
